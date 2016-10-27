@@ -1,0 +1,63 @@
+{% layout settings.customer_layout %}
+<div class="content">
+  <h2>{{ 'customer.account.title' | t }}</h2>
+  <div class="row">
+    <p class="expanded">
+      {{ 'customer.account.user_info_html' | t: name: customer.name, email: customer.email }}
+      {% if customer.default_address %}
+        {% capture address %}
+          {{ customer.default_address.address1 }}{% if customer.default_address.address2 != "" %}, {{ customer.default_address.address2 }}{% endif %} 
+          {% if customer.default_address.city != "" %}in {{ customer.default_address.city }},{% endif %}
+          {% if customer.default_address.province_code != "" %} {{ customer.default_address.province_code | upcase }}{% endif %}
+          {% if customer.default_address.zip != "" %} {{ customer.default_address.zip | upcase }}{% endif %}
+          {% if customer.default_address.country != "" %} {{ customer.default_address.country }}{% endif %}
+        {% endcapture %}
+        {{ 'customer.account.address_info_html' | t: address: address }}
+      {% endif %}
+    </p>
+  </div>
+  <div class="row">
+    {% if customer.addresses_count == 0 %}
+      <a href="/account/addresses" class="btn small action">{{ 'customer.account.add_address' | t }}</a>
+    {% else %}
+      <a href="/account/addresses" class="btn small action">{{ 'customer.account.edit_addresses' | t: count: customer.addresses_count }}</a>
+    {% endif %}      
+  </div>
+
+  <div class="row">
+    {% include 'get-url-to-collections' %}
+    {% capture link %}
+      <a class="underscore" href="{{ collections_url }}">{{ 'customer.account.return_to_store' | t }}</a>
+    {% endcapture %}
+    {{ 'general.navigation.cancel_html' | t: link: link }}
+  </div>
+  
+  {% if customer.orders.size != 0 %}
+    <h4>—</h4>
+    <div>
+      <h2>{{ 'customer.orders.title' | t }}</h2>
+      <div class="orders">
+        {% for order in customer.orders %}
+            <div class="order">
+              {% capture date %}{{ order.created_at | date: format: 'day_month_and_year' }}{% endcapture %}
+              {% capture link %}<a href="{{ order.customer_url }}">{{ order.name }}</a>{% endcapture %}
+              <p class="big">{{ 'customer.orders.order_description_html' | t: date: date, link: link, financial_status: order.financial_status_label, fulfillment_status: order.fulfillment_status_label }}</p>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row">
+      {% include 'get-url-to-collections' %}
+      <a class="btn action small" href="{{ collections_url }}">{{ 'customer.orders.new_order' | t }}</a>
+    </div>
+    <div class="row">
+      {% include 'get-url-to-collections' %}
+      {% capture link %}
+        <a class="underscore" href="{{ collections_url }}">{{ 'customer.account.return_to_store' | t }}</a>
+      {% endcapture %}
+      {{ 'general.navigation.cancel_html' | t: link: link }}
+    </div>
+  {% endif %}
+
+</div>

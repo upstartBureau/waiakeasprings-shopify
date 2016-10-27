@@ -1,0 +1,316 @@
+{
+  "general": {
+    "404": {
+      "title": "Página no encontrada",
+      "subtitle": "La página que busca no existe.",
+      "continue_shopping": "Volver a la tienda",
+      "open_menu": "abrir menú"
+    },
+    "breadcrumbs": {
+      "catalog": "Catalogo",
+      "collections": "Colecciones",
+      "search": "Búsqueda"
+    },
+    "search": {
+      "placeholder": "Buscar",
+      "results_for_html": "Resultados de la busqueda de “{{ terms }}”:",
+      "no_results": "No existe ningún producto"
+    },
+    "pagination": {
+      "collections_more": "Más colecciones",
+      "collections_loading": "Cargando...",
+      "products_more": "Más productos",
+      "products_loading": "Cargando...",
+      "articles_more": "Más artículos",
+      "articles_loading": "Cargando..."
+    },
+    "navigation": {
+      "cancel_html": "o {{ link }}"
+    },
+    "page_title": {
+      "tagged": "con la etiqueta \"{{ tags }}\"",
+      "pagination": "Página {{ current_page }}"
+    },
+    "newsletter_form": {
+      "hero_text": "Apúntese para que le podamos avisar cuando la tienda esté lista.",
+      "hero_newsletter_email": "Correo electrónico",
+      "hero_submit": "Enviar",
+      "footer_newsletter_email": "Introduzca su correo electrónico...",
+      "footer_submit": "Enviar"
+    }
+  },
+  "blogs": {
+    "article": {
+      "read_entire_article": "Leer el artículo completo",
+      "tags": "Tags",
+      "previous_article": "Artículo anterior",
+      "next_article": "Artículo siguiente",
+      "other_articles": "Otros artículos"
+    },
+    "comments": {
+      "title": "Comentarios ({{ count }})",
+      "comment_title_html": "{{ author }} el <time datetime=\"{{ date }}\">{{ date }}<\/time>",
+      "comments_count": {
+        "zero": "No hay comentarios",
+        "one": "{{ count }} comentario",
+        "other": "{{ count }} comentarios"
+      }
+    },
+    "comment_form": {
+      "title": "Escriba un comentario",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "post": "Enviar comentario",
+      "moderated": "Los comentarios serán revisados antes de ser publicados.",
+      "success_moderated": "Su comentario ha sido recibido. Será publicado en breve, una vez haya sido revisado.",
+      "success": "Su comentario ha sido publicado. Gracias."
+    }
+  },
+  "collections": {
+    "general": {
+      "catalog": "Catalogo",
+      "collections": "Colecciones",
+      "view_all_products": "Ver todos los productos",
+      "all_products": "Todos los productos",
+      "no_collections": "Actualmente no existe ninguna colección disponible.",
+      "no_products": "Esta colección por ahora no dispone de ningún producto.",
+      "products_count": {
+        "zero": "No hay ningún producto",
+        "one": "{{ count }} producto",
+        "other": "{{ count }} productos"
+      }
+    },
+    "sort_by": {
+      "manual": "Ordenar por destacados",
+      "best_selling": "Ordenar por ventas",
+      "title_ascending": "Ordenar alfabéticamente, A-Z",
+      "title_descending": "Ordenar alfabéticamente, Z-A",
+      "price_ascending": "Ordenar por precio, de menor a mayor",
+      "price_descending": "Ordenar por precio, de mayor a menor",
+      "created_descending": "Ordenar por fecha, de nuevo a antiguo",
+      "created_ascending": "Ordenar por fecha, de antiguo a nuevo"
+    }
+  },
+  "products": {
+    "product": {
+      "buy": "Comprar",
+      "from": "⁓",
+      "on_sale": "Rebajas",
+      "sold_out": "Agotado",
+      "available_units_html": "Unidades disponibles: {{ units }}",
+      "unavailable": "No disponible",
+      "add_to_cart": "Añadir al carro",
+      "adding_to_cart": "Añadiendo producto..."
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "message": "Mensaje",
+      "send": "Enviar",
+      "post_success": "Gracias por ponerse en contacto. Le responderemos lo antes posible.",
+      "return_to_store": "Volver a la tienda"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Información de la cuenta",
+      "user_info_html": "Cuenta creada por <span class=\"highlight\">{{ name }}<\/span>, com correo electrónico <span class=\"highlight\">{{ email }}<\/span>.",
+      "address_info_html": "La dirección postal por defecto es <span class=\"highlight\">{{ address }}<\/span>.",
+      "add_address": "Añade tu dirección postal",
+      "edit_addresses": "Modificar Direcciones ({{ count }})",
+      "return_to_store": "Volver a la tienda"
+    },
+    "orders": {
+      "title": "Sus pedidos",
+      "order_description_html": "El {{ date }} el pedido {{ link }} fué realizado y su estado actual es de <span class=\"highlight\">{{ financial_status }}<\/span> y <span class=\"highlight\">{{ fulfillment_status }}<\/span>.",
+      "new_order": "Crear un nuevo pedido"
+    },
+    "order": {
+      "title": "Pedido {{ name }}",
+      "date": "Creado el {{ date }}",
+      "cancelled": "Su pedido fue cancelado el {{ date }}",
+      "cancelled_reason": "Las razones fueron: {{ reason }}",
+      "billing_address": "Dirección de facturación",
+      "payment_status": "Estado del pago",
+      "shipping_address": "Dirección de envío",
+      "fulfillment_status": "Estado de la tramitación",
+      "discount": "Descuento",
+      "subtotal": "Subtotal",
+      "shipping": "Costes de envío",
+      "tax": "Impuestos",
+      "total": "Total",
+      "new_order": "Crear un nuevo pedido",
+      "return_to_account": "Volver a la página principal"
+    },
+    "activate_account": {
+      "title": "Activar la cuenta",
+      "subtitle": "Especifique su contraseña para activar su cuenta.",
+      "password": "Contraseña",
+      "password_confirm": "Confirme la contraseña",
+      "submit": "Activar la cuenta",
+      "submitting": "Activando...",
+      "cancel": "Declinar invitación",
+      "return_to_store": "Volver a la tienda"
+    },
+    "addresses": {
+      "title": "Tus direcciones postales",
+      "subtitle": "Estas son las direcciones vinculadas a su cuenta.",
+      "empty": "Todavía no ha introducido ninguna dirección postal.",
+      "default": "Dirección por defecto",
+      "add_new": "Nueva dirección postal",
+      "edit_address": "Modificar dirección",
+      "recipient": "Destinatario",
+      "first_name": "Nombre",
+      "last_name": "Apellido\/s",
+      "company": "Empresa",
+      "address": "Dirección postal",
+      "address1": "Dirección 1",
+      "address2": "Dirección 2",
+      "city": "Ciudad",
+      "country": "País",
+      "province": "Provincia",
+      "zip": "Código postal",
+      "phone": "Teléfono",
+      "phone_label": "Tel.",
+      "set_default_label": "Guardar como dirección por defecto?",
+      "set_default_action": "Si, por favor.",
+      "add": "Añadir nueva dirección",
+      "adding": "Añadiendo...",
+      "update": "Modificar dirección",
+      "updating": "Modificando...",
+      "cancel": "Cancelar",
+      "edit": "Modificar",
+      "delete": "Eliminar",
+      "delete_question": "¿Está seguro que quiere eliminar esta dirección?",
+      "return": "Volver a la página principal"
+    },
+    "login": {
+      "title": "¿Ya se ha registrado?",
+      "subtitle": "Inicie una nueva sesión.",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "sign_in": "Entrar",
+      "signing_in": "Iniciando sesión...",
+      "forgot_password": "¿Se olvidó de la contraseña?",
+      "register_title": "¿Es la primeva vez en nuestra tienda?",
+      "register_subtitle": "Regístrese como cliente.",
+      "register_action": "Registrar",
+      "password_title": "Renueve su contraseña:",
+      "password_subtitle": "Recibirá un correo electrónico con instrucciones de cómo proseguir.",
+      "password_sent": "Ya le hemos enviado el correo electrónico con el enlace para renovar su contraseña.",
+      "password_action": "Enviar instrucciones",
+      "password_cancel": "Cancelar",
+      "guest_title": "¿No deséa registrarse?",
+      "guest_subtitle": "Continúe como invitado.",
+      "guest_action": "Continuar"
+    },
+    "reset_password": {
+      "title": "Renueve su contraseña",
+      "subtitle": "Introduzca una nueva contraseña vinculada al correo {{ email }}",
+      "password": "Contraseña",
+      "password_confirm": "Confirme la contraseña",
+      "submit": "Renovar contraseña",
+      "submitting": "Actualizando...",
+      "return_to_store": "Volver a la tienda"
+    },
+    "register": {
+      "title": "Crear una nueva cuenta de usuario",
+      "subtitle": "Introduzca sus datos de contacto.",
+      "first_name": "Nombre",
+      "last_name": "Apellido\/s",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "submit": "Crear la cuenta",
+      "submitting": "Actualizando...",
+      "return_to_store": "Volver a la tienda"
+    }
+  },
+  "home_page": {
+    "hero": {
+      "tagline_html": "Productos artesanales de calidad y para toda la vida",
+      "button_to_store": "Descubra nuestros productos",
+      "button_to_scroll": "¿ En qué destaca nuestra tienda ?",
+      "photo_credits_html": "Foto de {{ author }} bajo {{ license }}"
+    },
+    "pitch": {
+      "title": "¿En qué destaca nuestra tienda?",
+      "subtitle_html": "A partir de la experience de más de 10 años trabajando en comercio electrónico, el objetivo es conseguir una experiencia sencilla pero efectiva.",
+      "reason_1_title": "Una pantalla, una acción",
+      "reason_1_description_html": "La plantilla evita saturar al usuario con demasiados opciones. Una experiencia de usuario sencilla para obtener un mejor rendimiento.",
+      "reason_2_title": "Responsive Design",
+      "reason_2_description_html": "El diseño de la plantilla se adapta al tamaño de los diferentes dispositivos. Prúebelo en una tableta o teléfono para ver cómo funciona.",
+      "reason_3_title": "Optimizado para Retina Display",
+      "reason_3_description_html": "La plantilla esta optimizada para mostrar el texto y las imágenes de la mejor forma en pantallas de alta definición.",
+      "reason_4_title": "Fácil de utilizar",
+      "reason_4_description_html": "Incorpore su logo, cambie el texto, añada sus productos, cambie los menús, todo de una forma sencilla y siguiendo los estándares de Shopify.",
+      "reason_5_title": "Optimizado para SEO",
+      "reason_5_description_html": "Optimizado para obtener los mejores resultados en la indexación en buscadores, y utilizando las posibilidades de Shopify SEO.",
+      "reason_6_title": "Atención personal 24\/7 en español",
+      "reason_6_description_html": "Estamos disponibles a través de correo electrónico. Normalmente respondemos en 12-24 horas durante los días laborables.",
+      "button_to_store": "Descubre nuestros productos"
+    },
+    "collection": {
+      "title": "Productos Seleccionados",
+      "button_to_store": "Descubre más productos",
+      "onboarding_product_name": "Nombre del producto"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Carrito de la compra",
+      "remove": "Eliminar",
+      "subtotal": "Subtotal",
+      "update": "Actualizar carro",
+      "checkout": "Siguiente",
+      "add_more_products": "Añadir más productos",
+      "seller_instructions": "Instrucciones especiales para el vendedor:",
+      "empty": "Parece ser que el carro está vacío.",
+      "continue_browsing": "Continuar navegando"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "¡Aquí tiene su tarjeta regalo de {{ shop }} con un valor de {{ value }}!",
+      "subtext": "¡Aquí tiene su tarjeta regalo!",
+      "amount_left_html": "{{ amount }} <small>disponibles<\/small>",
+      "redeem": "Utilice este código en el proceso de compra para canjear su tarjeta regalo.",
+      "shop_link": "Empezar a comprar",
+      "print": "Imprimir",
+      "disabled": "Esta tarjeta regalo ha sido desactivada",
+      "expired": "Caducó el {{ expiry }}",
+      "active": "Caduca el {{ expiry }}"
+    }
+  },
+  "layout": {
+    "header_nav": {
+      "cart_count": {
+        "zero": "Carro",
+        "one": "Carro ({{ count }} item)",
+        "other": "Carro ({{ count }} items)"
+      }
+    },
+    "side_nav": {
+      "account": "Su cuenta",
+      "logout": "Desconectar",
+      "signin": "Iniciar sesión",
+      "close": "Cerrar",
+      "back": "Volver"
+    },
+    "footer": {
+      "contact": "Contacto",
+      "social": "Social",
+      "email": "Email",
+      "newsletter_title": "Lista de correo",
+      "accepted_payments": "Formas de pago",
+      "theme_title": "y"
+    }
+  },
+  "date_formats": {
+    "day_month_and_year": "%e de %B de %Y",
+    "date_and_time": "%e de %B de %Y a las %I:%M %P"
+  }
+}

@@ -1,0 +1,15 @@
+{% assign current_url = '' %}
+{% assign template_base = template | replace: '.', ' ' | truncatewords: 1, '' | handle %}
+
+{% case template_base %}
+  {% when 'page' %}
+    {% assign current_url = shop.url | append: page.url %}
+  {% when 'blog' %}
+    {% assign current_url = shop.url | append: blog.url %}
+  {% when 'article' %}
+    {% assign current_url = shop.url | append: blog.url %}
+  {% when 'collection' %}
+    {% assign current_url = shop.url | append: collection.url %}
+  {% when 'product' %}
+    {% assign current_url = shop.url | append: product.url %}
+{% endcase %}

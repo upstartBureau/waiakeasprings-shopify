@@ -1,0 +1,7 @@
+{% if settings.collections_layout == 'six-columns' %}
+  {% assign limit = 18 %}
+{% elsif settings.collections_layout == 'two-columns' %}
+  {% assign limit = 8 %}
+{% else %}
+  {% assign limit = 12 %}
+{% endif %}

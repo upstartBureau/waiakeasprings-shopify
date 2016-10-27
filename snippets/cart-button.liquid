@@ -1,0 +1,12 @@
+<div class="header-nav">
+  <!--{% unless template == 'customers/login' or template == 'customers/register' %} 
+   <a class="btn icon search" data-action="toggle-search"><i class="fa fa-search"></i></a>
+  {% endunless %}-->
+  {% unless template == 'cart' %}
+  {% if cart.item_count > 0 %}
+  	<div class="cart-box">
+      <a href="/cart"><img src="//cdn.shopify.com/s/files/1/1063/3186/t/2/assets/cart.png?5499244794509170653"><span>{{ cart.item_count }}</span></a>
+    </div>
+  {% endif %}
+  {% endunless %}
+</div>

@@ -1,0 +1,58 @@
+<div class="side-nav">
+  <div class="content">
+    <ul class="main">
+      {% for link in linklists[settings.side_nav_linklist].links %}
+        {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+        <li>
+          <a href="{{ link.url }}" {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}data-action="link-to-child-list" data-handle="{{ child_list_handle }}"{% endif %}>{{ link.title }}</a>
+        </li>
+      {% endfor %}
+      {% if shop.customer_accounts_enabled %}
+      <li>—</li>
+        {% if customer %}
+          <li><a href="/account">{{ 'layout.side_nav.account' | t }}</a></li>
+          <li><a href="/account/logout">{{ 'layout.side_nav.logout' | t }}</a></li>
+        {% else %}
+          <li><a href="/account/login">{{ 'layout.side_nav.signin' | t }}</a></li>
+        {% endif %}
+      {% endif %}
+      <li>—</li>
+      <li><a href="#" data-action="toggle-browse">{{ 'layout.side_nav.close' | t }}</a></li>
+    </ul>
+
+    {% for link in linklists[settings.side_nav_linklist].links %}
+      {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+      {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+        <ul class="{{ child_list_handle }}">
+          {% for link in linklists[child_list_handle].links %}
+            {% capture grandson_list_handle %}{{ link.title | handle }}{% endcapture %}
+            <li>
+              <a href="{{ link.url }}" {% if linklists[grandson_list_handle] and linklists[grandson_list_handle].links.size > 0 %}data-action="link-to-child-list" data-handle="{{ grandson_list_handle }}"{% endif %}>{{ link.title }}</a>
+            </li>
+          {% endfor %}
+          <li>—</li>
+          <li><a href="#" data-action="back-to-previous-list">{{ 'layout.side_nav.back' | t }}</a></li>
+        </ul>
+
+        {% for link in linklists[child_list_handle].links %}
+          {% capture grandson_list_handle %}{{ link.title | handle }}{% endcapture %}
+          {% if linklists[grandson_list_handle] and linklists[grandson_list_handle].links.size > 0 %}
+            <ul class="{{ grandson_list_handle }}">
+              {% for link in linklists[grandson_list_handle].links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+              <li>—</li>
+              <li><a href="#" data-action="back-to-previous-list">{{ 'layout.side_nav.back' | t }}</a></li>
+            </ul>
+          {% endif %}
+        {% endfor %}
+
+      {% endif %}
+    {% endfor %}
+
+
+
+  </div>
+</div>

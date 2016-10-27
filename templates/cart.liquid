@@ -1,0 +1,143 @@
+{%  include 'subscription-cart-footer' %}
+<div class="content">
+	<h2>{{ 'cart.general.title' | t }}</h2>
+	{% if cart.item_count > 0 %}
+		<form action="/cart" method="post" novalidate>
+			<script>mixed_cart = false;</script>
+			{% for item in cart.items %}
+				<div class="items">
+					{% assign prod_index = forloop.index0 %}
+					<input type="hidden" name="product_id[{{ forloop.index0 }}]" value="{{ item.product.id }}">
+					<input type="hidden" name="variant_id[{{ forloop.index0 }}]" value="{{ item.variant.id }}">
+					<input type="hidden" name="quantity[{{ forloop.index0 }}]" value="{{ item.quantity }}">
+					
+					<div class="item">
+						<div class="left">
+							<div class="select">
+								<select name="updates[]" id="updates_{{ item.id }}" data-action="update">
+									{% for i in (1..50) %}
+										<option value="{{ i }}"{% if i == item.quantity %} selected="selected"{% endif %}>{{ i }}</option>
+									{% endfor %}
+								</select>
+								<div class="arrow">
+									<i class="fa fa-chevron-down fa-lg"></i>
+								</div>
+							</div>
+							<img src="{{ item | img_url: 'small' }}"  alt="{{ item.title | escape }}" />
+							<!-- bold-ro-liquid
+							{% for p in item.properties %}
+									{% if p.first == "frequency_num" %}
+									<script>
+									mixed_cart = true;
+									</script>
+									<br>
+									<span class="bold_ro_every">Every</span>
+									<input type="hidden" name="{{ prod_index }}[number]" value={{p.last}} />
+								{% endif %}
+								
+								{% if p.first == "frequency_type" %}
+									<input type="hidden" name="{{ prod_index }}[type_id]" value={{p.last}} />
+								{% endif %}
+								
+								{% if p.first == "frequency_num" or p.first == "frequency_type_text" %}
+									{{ p.last }}
+								{% endif %}
+								{% if p.first == "group_id" %}
+									<input type="hidden" name="{{ prod_index }}[group_id]" value={{p.last}} />
+								{% endif %}
+								{% if p.first == "discounted_price" %}
+									<br><span class="bold_ro_discounted_price">Discounted Price</span>
+									<span class="discounted_price_in_cart">{{ p.last }} </span> <span class="bold_ro_each">each</span>
+								{% endif %}
+							{% endfor %}
+							<!-- bold-ro-liquid -->
+							<div class="product">
+								<span class="title">{{ item.product.title }}</span>
+								<span class="subtitle">
+									{% unless item.variant.title contains 'Default' %}
+									{{ item.variant.title }},
+								{% endunless %}
+								<!-- FIX RO ITEM PRICES
+								{% if item.properties.discounted_price != blank %}
+										{% assign ro_price = item.properties.discounted_price %}
+										{% assign ro_first_character = ro_price | remove: ' ' | slice: 0 %}
+										{% assign ro_first_character_test = ro_first_character | plus: 0 %}
+										
+										{% if ro_first_character_test == 0 %}
+												{% assign ro_price = ro_price | remove: ro_first_character %}
+										{% endif %}
+									
+										{% assign ro_item_price = ro_price | split: ' ' | first | times: 100 %}
+										{% assign ro_line_item_price = ro_item_price | times: item.quantity %}
+									
+								{% else %}
+										{% assign ro_item_price = item.price %}
+										{% assign ro_line_item_price = item.line_price %}
+								{% endif %}
+								<!-- END RO ITEM PRICES -->
+								{{ item.price | money }}
+								<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-action="remove">{{ 'cart.general.remove' | t }}</a>
+							</span>
+						</div>
+					</div>
+					<div class="right">
+						<span class="price">{{ item.price | money }}</span>
+					</div>
+				</div>
+			{% endfor %}
+			<div class="item">
+				<div class="left">
+					{% include 'get-url-to-collections' %}
+					<a class="btn" href="{{ collections_url }}">{{ 'cart.general.add_more_products' | t }}</a>
+				</div>
+				<!-- <div class="right">
+					<div class="subtotal">{{ 'cart.general.subtotal' | t }}</div>
+					
+					<span class="price subtotal">{{ cart.total_price | money }}</span>
+				</div> -->
+			</div>
+		<!-- </div> -->
+			{% if settings.cart_notes_enable %}
+				<div class="block full">
+					<label for="CartSpecialInstructions">{{ 'cart.general.seller_instructions' | t }}</label>
+					<textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+				</div>
+				<div class="clear"></div>
+			{% endif %}
+			<div class="block right">
+				<div class="ord-summary">
+					<h3>Order Summary</h3>
+					{% assign var_taxRate = 0.08 %}
+					{% capture var_taxAmount %}{{ cart.total_price | times: var_taxRate }}{% endcapture %}
+					{% capture var_totalPlusTax %}{{ cart.total_price | plus: var_taxAmount }}{% endcapture %} 
+					<ul>
+						<li>
+							<span>Subtotal</span>
+							<span>{{ cart.total_price | money }}</span>
+						</li>
+						<!--<li>
+							<span>Shipping</span>
+						    <span>{{ cart.total_price | money }}</span>						
+                        </li>-->
+						<li>
+							<span>Tax</span>
+							<span>{{ var_taxAmount | money }}</span>
+						</li>
+						<li>
+							<span><b>Total<small>(USD)</small></b></span>
+							<span><b>{{ var_totalPlusTax | money }}</b></span>
+						</li>
+					</ul>
+				</div>
+				<input type="submit" name="checkout" class="btn action small" value="{{ 'cart.general.checkout' | t }}">
+				<input type="submit" name="update" class="update" value="{{ 'cart.general.update' | t }}">
+			</div>
+		</form>
+	{% else %}
+	<h4>{{ 'cart.general.empty' | t }}</h4>
+	<div class="row" style="margin-top: 20px;">
+		{% include 'get-url-to-collections' %}
+		<a href="/pages/plans" class="btn small action">{{ 'cart.general.continue_browsing' | t }}</a>
+	</div>
+{% endif %}
+</div>

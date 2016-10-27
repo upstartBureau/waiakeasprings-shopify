@@ -1,0 +1,11 @@
+<div class="header-nav">
+  {% if linklists[settings.side_nav_linklist].links.size > 0 or shop.customer_accounts_enabled %}
+    <a class="btn icon browse" data-action="toggle-browse"><i class="fa fa-bars"></i></a>
+  {% endif %}
+<!--   {% unless template == 'customers/login' or template == 'customers/register' %} 
+   <a class="btn icon search" data-action="toggle-search"><i class="fa fa-search"></i></a>
+  {% endunless %} -->
+  	<div class="cart-box">
+        <a href="/cart"><img src="//cdn.shopify.com/s/files/1/1063/3186/t/2/assets/cart.png?856035542140622903"><span>{{ cart.item_count }}</span></a>
+    </div>
+</div>

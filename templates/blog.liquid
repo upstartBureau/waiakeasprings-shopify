@@ -1,0 +1,14 @@
+{% paginate blog.articles by 10 %}
+  <div class="content blog">
+    
+    {% if current_tags %}
+      <h1>Tag: {{ current_tags.first }}</h1>
+    {% endif %}
+
+    {% for article in blog.articles %}
+      {% include 'post' %}
+    {% endfor %}
+
+    {% include 'article-pagination' %}
+  </div>
+{% endpaginate %}

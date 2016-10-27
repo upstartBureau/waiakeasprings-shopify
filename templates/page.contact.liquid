@@ -1,0 +1,39 @@
+{% include 'alert-header' %}
+<div class="content">
+  <h2>{{ page.title }}</h2>
+  <div class="page_content">
+    {{ page.content }}
+  </div>
+  {% form 'contact' %}
+    {% if form.errors %}
+      {% assign alert = form.errors | default_errors %}
+    {% endif %}
+
+    {% if form.posted_successfully? %}
+      <h4>{{ 'contact.form.post_success' | t }}</h4>
+    {% endif %}
+
+    <div class="row">
+      <input class="full{% if form.errors contains 'name' %} error{% endif %}" type="text" id="contactFormName" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+    </div>
+    <div class="row">
+      <input class="full{% if form.errors contains 'email' %} error{% endif %}" type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+    </div>
+    <div class="row">
+      <input class="full{% if form.errors contains 'phone' %} error{% endif %}" type="tel" id="contactFormPhone" name="contact[phone]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+    </div>
+    <div class="row">
+      <textarea class="full" rows="5" id="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+    </div>
+    <div class="row">
+      <input class="btn action full" data-action="process" data-message="Sending..." name="commit" type="submit" value="{{ 'contact.form.send' | t }}">
+    </div>
+    <div class="row left">
+      {% include 'get-url-to-collections' %}
+      {% capture link %}
+        <a class="underscore" href="{{ collections_url }}">{{ 'contact.form.return_to_store' | t }}</a>
+      {% endcapture %}
+      {{ 'general.navigation.cancel_html' | t: link: link }}
+    </div>
+  {% endform %}
+</div>

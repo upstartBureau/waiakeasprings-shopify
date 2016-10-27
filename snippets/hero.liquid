@@ -1,0 +1,87 @@
+<div class="hero" style="min-height:758px">
+  <div class="image">
+    <div class="layer"></div>
+      
+    <div class="content {{ settings.hero_alignment }}">
+      <div class="inner">
+        <div class="container">
+          <h1 class="logo" itemscope itemtype="http://schema.org/Organization">
+            <a href="/" itemprop="url">
+              {% if settings.hero_logo == "3" %}
+                <img src="{{ 'waiakea-single-logo-white.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+              {% else %}
+                <img src="{{ 'waiakea-single-logo-white.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+              {% endif %}
+            </a>
+          </h1>
+          {% unless settings.hero_hide_line %}
+            <hr>
+          {% endunless %}
+          
+          {% unless settings.hero_hide_button_to_store %}
+            <a href="{{ settings.hero_button_to_store_url }}" class="btn action small">{{ 'home_page.hero.button_to_store' | t }}</a>
+          {% endunless %}
+          {% if settings.hero_newsletter_enable %}
+            {% include 'hero-newsletter-form' %}
+          {% endif %}
+          {% unless settings.hero_hide_button_to_scroll %}
+            {% if settings.home_pitch != "no_pitch" %}
+              <!--<div>
+                <a class="btn line" data-action="scroll">{{ 'home_page.hero.button_to_scroll' | t }}</a>
+              </div>-->
+            {% endif %}
+          {% endunless %}
+          <div class="content description benefits">
+          <div class="row cols half_pitch">
+          <div class="col col-1">
+          <img src="{{ 'calendar.png' | asset_url }}" width="150px">
+          <h3 class="white">Choose a Plan</h3>
+          <p class="expanded white">Save up to 20% or select a <br>one-time delivery</p><br>
+        
+          </div>
+        <div class="col col-2">
+          <img src="{{ 'SizesIcon.png' | asset_url }}" width="150px">
+          <h3 class="white">{{ 'home_page.pitch.reason_2_title' | t }}</h3>
+          <p class="expanded white">{{ 'home_page.pitch.reason_2_description_html' | t }}</p>
+        </div>
+        <div class="col col-3">
+          <img class="truck" src="{{ 'DeliveryIcon.png' | asset_url }}" width="150px">
+          <h3 class="white">{{ 'home_page.pitch.reason_3_title' | t }}</h3>
+          <p class="expanded white">{{ 'home_page.pitch.reason_3_description_html' | t }}</p>
+        </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'header-nav' %}
+    {% unless settings.hero_hide_arrow %}
+      {% if settings.home_collection != "1" or settings.home_articles != "1" or settings.home_pitch != "no_pitch" %}
+        <div class="bottom-right">          
+          {% unless settings.hero_hide_tagline %}
+            <h3 class="white">Delicious, Naturally Alkaline, Sustainable. Delivered Directly to You!</h3>
+          {% endunless %}
+          <a href="#" class="btn action small submit addtocart" data-action="scroll">Shop Now</a><br>
+          <a href="#" class="arrow" data-action="scroll">
+            <i class="fa fa-chevron-down fa-lg"></i>
+          </a>
+        </div>
+      {% endif %}
+    {% endunless %}
+    {% if settings.hero_background == "1" and settings.name == "generic" %}
+      <div class="bottom-left">
+        {% capture author %}
+          <a href="http://superfamous.com/" target="_blank">Folkert Gorter</a>
+        {% endcapture %}
+        {% capture license %}
+          <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC Attribution 3.0 license</a>
+        {% endcapture %}
+        {{ 'home_page.hero.photo_credits_html' | t: author: author, license: license }}.
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script type="text/javascript">
+  window.hero_parallax = {{ settings.hero_parallax }};
+</script>

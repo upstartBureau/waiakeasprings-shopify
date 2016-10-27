@@ -1,0 +1,674 @@
+window.is_ie = /MSIE|Trident/i.test(navigator.userAgent);
+window.is_iphone = /iPhone|iPod/i.test(navigator.userAgent);
+window.is_fullscreen = false;
+
+window.California = {};
+
+$(document).ready(function() {
+  California.initIE();
+  California.initEasings();
+  California.initPlaceholders();
+  California.init();
+});
+
+California.init = function(){
+  California.initPageConfig();
+  California.initListeners();
+  California.initHomePage();
+  California.initLoginPage();
+  California.initProductPage();
+  California.initAddressesPage();
+  California.initSearchPage();
+  $(document).trigger('products_rendered');
+};
+
+California.initPageConfig = function(){
+  if (window.is_ie) {
+    $("html").addClass("ie");
+  }
+};
+
+California.initListeners = function(){
+
+  window.previousLists = [];
+
+
+  $(document)
+
+    .on('click', '[data-action=toggle-search]', function(e){
+      var $body = $('body');
+      if($body.hasClass('browsing')){
+        $('[data-action=toggle-browse]').first().click();
+      };
+      $body.toggleClass('searching').find('i').toggleClass('fa-times fa-search');
+      $('[data-action=toggle-search]').toggleClass('active');
+      if($body.hasClass('searching')){
+        $('.search-bar input.query').focus();
+      } else {
+        $('.search-bar input.query').blur();
+      }
+      e.preventDefault();
+    })
+
+    .on('click', '[data-action=go-back]', function(e){
+      window.history.back();
+      e.preventDefault();
+    })
+
+    .on('click', '[data-action=toggle-browse]', function(e){
+      var $body = $('body');
+      if($body.hasClass('searching')){
+        $('[data-action=toggle-search]').first().click();
+      };
+      $body.toggleClass('browsing');
+      $('[data-action=toggle-browse]').toggleClass('active').find('i').toggleClass('fa-times fa-bars');
+      if(!$body.hasClass('browsing')){
+        California.showMainList();
+      }
+      e.preventDefault();
+    })
+
+    .on('change', '.tickets .number select', function() {
+      return $(this).parent('form').submit();
+    })
+    
+    .on('click', '[data-action=process][data-message]', function(e) {
+      var $this = $(this),
+          $window = $(window);
+
+      $('<a>').insertAfter($this).attr('class', $this.attr('class') + ' processing').html($this.attr('data-message')).prepend($('<i class="fa fa-cog fa-spin">'));
+      $this.hide();
+    })
+
+    .on('click', '[data-action=scroll]', function(e) {
+      e.preventDefault();
+      $('body,html').animate({
+        scrollTop: $('.hero').height() + (window.is_iphone ? 30 : 0)
+      }, {
+        duration: 600,
+        easing: "easeInOutQuad"
+      });
+    })
+
+    .on('click', '[data-action=load-more-collections][data-message]', function(e){
+      e.preventDefault();
+      
+      var $this = $(this),
+          $a = $('<a>').attr('class', $this.attr('class') + ' processing').html($this.attr('data-message')).prepend($('<i class="fa fa-cog fa-spin">'));
+
+      $a.insertAfter($this)
+      $this.hide();
+
+      $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: $this.attr('href'),
+        success: function(data) {
+          var $current_collections  = $('.collections .collection'),
+              $new_collections = $(data).find('.collections .collection'),
+              $new_pagination_button = $(data).find('[data-action=load-more-collections]');
+
+          $new_collections.insertAfter($current_collections.last()).fadeTo(0,0).fadeTo(300, 1);
+          $a.remove();
+          if ($new_pagination_button.length){
+            $this.attr('href', $new_pagination_button.attr('href')).show();
+          } else {
+            $this.remove();
+          }
+          $(document).trigger('products_rendered');
+        }
+      });
+    })
+
+    .on('click', '[data-action=load-more-products][data-message]', function(e){
+      e.preventDefault();
+      
+      var $this = $(this),
+          $a = $('<a>').attr('class', $this.attr('class') + ' processing').html($this.attr('data-message')).prepend($('<i class="fa fa-cog fa-spin">'));
+
+      $a.insertAfter($this)
+      $this.hide();
+
+      $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: $this.attr('href'),
+        success: function(data) {
+          var $current_products  = $('.products .product'),
+              $new_products = $(data).find('.products .product'),
+              $new_pagination_button = $(data).find('[data-action=load-more-products]');
+
+          $new_products.insertAfter($current_products.last()).fadeTo(0,0).fadeTo(300, 1);
+          $a.remove();
+          if ($new_pagination_button.length){
+            $this.attr('href', $new_pagination_button.attr('href')).show();
+          } else {
+            $this.remove();
+          }
+          $(document).trigger('products_rendered');
+        }
+      });
+    })
+
+    .on('click', '[data-action=load-more-articles][data-message]', function(e){
+      e.preventDefault();
+      
+      var $this = $(this),
+          $a = $('<a>').attr('class', $this.attr('class') + ' processing').html($this.attr('data-message')).prepend($('<i class="fa fa-cog fa-spin">'));
+
+      $a.insertAfter($this)
+      $this.hide();
+
+      $.ajax({
+        type: 'GET',
+        dataType: "html",
+        url: $this.attr('href'),
+        success: function(data) {
+          var $current_articles  = $('.blog .post'),
+              $new_articles = $(data).find('.blog .post'),
+              $new_pagination_button = $(data).find('[data-action=load-more-articles]');
+
+          $new_articles.insertAfter($current_articles.last()).fadeTo(0,0).fadeTo(300, 1);
+          $a.remove();
+          if ($new_pagination_button.length){
+            $this.attr('href', $new_pagination_button.attr('href')).show();
+          } else {
+            $this.remove();
+          }
+        }
+      });
+    })
+
+    .on('change', '[data-action=update]', function(){
+      $('input.update').click();
+    })
+
+    .on('change', 'select[data-action=filter]', function(){
+      window.location.href = $(this).val();
+    })
+
+    .on('keydown', '.field_with_errors > input', function() {
+      return $(this).parent().removeClass('field_with_errors');
+    })
+
+    .on('click', '[data-action=toggle-recover-password]', function(){
+      $('#recover_password').toggle();
+      $('#login').toggle();
+
+      if($('#recover_password').is(':visible')){
+        $('#recover_password input#recover-email').focus();
+      } else {
+        $('#login input#customer_email').focus();
+      }
+
+    })
+
+    .on('keydown', 'body', function(e){
+      var $body = $('body');
+      if($body.hasClass('searching') && e.which === 27){
+        $('[data-action=toggle-search]').first().click();
+      }
+      $('[data-action=keydown][data-key][href]').each(function(){
+        if(!window.is_fullscreen){
+          if(e.which === parseInt($(this).attr('data-key'))){
+            $(this).addClass("hover");
+            window.location.href = $(this).attr('href');
+          }
+        }
+      });
+    })
+
+    .on('products_rendered', function(){
+      $('.products .product img:not(.loaded)').each(function(){
+        var image = new Image(),
+            $image = $(this),
+            $product = $image.parents('.product'),
+            $frame = $('.frame', $product),
+            $line = $('.line', $product);
+
+        $frame.hide();
+        $line.hide();
+
+        image.onload = function(){
+          var width = image.width,
+              height = image.height,
+              angle = -Math.round(Math.atan2(height, width) * 57.2957795, 2);
+
+          $line
+            .css('transform', 'rotate(' + angle + 'deg)')
+            .css('-ms-transform', 'rotate(' + angle + 'deg)')
+            .css('-moz-transform', 'rotate(' + angle + 'deg)')
+            .css('-webkit-transform', 'rotate(' + angle + 'deg)')
+            .css('-o-transform', 'rotate(' + angle + 'deg)')
+            .show();
+
+          $image
+            .addClass('loaded')
+            .css('max-width', width);
+
+          $frame.show();
+
+        };
+        image.src = $image.attr('src');
+      });
+    })
+
+    .on('click', '[data-action=link-to-child-list][data-handle]', function(e){
+      var handle = $(this).attr('data-handle'),
+          $previousList = $(this).parents('ul'),
+          $lists = $('.side-nav ul'),
+          $list = $('.side-nav .' + handle);
+
+      if($list.length > 0){
+        window.previousLists.push($previousList);
+        $lists.hide();
+        $list.show();
+        e.preventDefault();
+      }
+    })
+
+    .on('click', '[data-action=back-to-previous-list]', function(e){
+      California.showPreviousList();
+      e.preventDefault();
+    })
+
+    .on('click', '[data-action=remove]', function(e){
+      $(this).addClass('click-disabled');
+    })
+    .on('click', '.click-disabled', function(e){
+      e.preventDefault();
+    });
+};
+
+California.showMainList = function(){
+  window.previousLists = [];
+  $('.side-nav ul').hide();
+  $('.side-nav .main').show();
+};
+
+California.showPreviousList = function(){
+  var $previous = window.previousLists.pop() || $('.side-nav .main'),
+      $lists = $('.side-nav ul');
+
+  $lists.hide();
+  $previous.show();
+};
+
+California.initHomePage = function(){
+  var $body = $('body'),
+      $window = $(window),
+      $hero_text = $('.hero .content .container'),
+      $hero_image = $('.hero .image');
+
+  if ($body.hasClass('template-index')){
+    var setHeroMinHeight = function(){
+      var min_height = $('.hero .content .inner .container').outerHeight(true);
+      $('.hero').css('min-height', min_height);
+    };
+
+    setHeroMinHeight();
+
+    $window.on('resize', function(){
+      setHeroMinHeight();
+    });
+
+    
+
+    if($('.hero .logo img').length > 0){
+      var image = new Image();
+      image.onload = function(){
+        setHeroMinHeight();
+      }
+      image.src = $('.hero .logo img').attr('src');
+    }
+  }
+};
+
+California.initLoginPage = function(){
+  // direct access to recover page: account/login#recover
+  if (window.location.hash == '#recover'){ 
+    $('[data-action=toggle-recover-password]').first().click();
+  }
+};
+
+California.initFullsizable = function(){
+  $('[data-action=fullsizable]').fullsizable();
+  
+  $(document)
+    .on('fullsizable:opened', function(){
+      window.is_fullscreen = true;
+      $('body').addClass('fullscreen');
+    })
+    .on('fullsizable:closed', function(){
+      window.is_fullscreen = false;
+      $('body').removeClass('fullscreen');
+    });
+};
+
+California.initProductPage = function(){
+  var $body = $('body'),
+      $window = $(window),
+      $footer = $('.footer');
+
+  if ($body.hasClass('template-product') && window.product){
+
+    // first set max-width
+    $('.images img:not(.loaded)').each(function(){
+      var image = new Image(),
+          $image = $(this);
+
+      $image.hide();
+
+      image.onload = function(){
+        $image
+          .addClass('loaded')
+          .css('max-width', image.width)
+          .show();
+      };
+      image.src = $image.attr('src');
+    });
+
+    var index = 0,
+        $item = $('.product .item'),
+        $info = $('.product .info'),
+        $images = $('.product .images'),
+        $image = $('.product .images .image'),
+        is_mobile = function(){
+          return ($window.width() <= 720);
+        },
+        is_on_mobile = is_mobile(),
+        show = function(inc){
+          show_with_index((index + inc) % $image.length);
+        },
+        show_with_index = function(value){
+          var $image = $('.product .images .image');
+          index = value;
+          $image.hide().eq(index).show();
+        },
+        images_are_higher_than_info = function(){
+          return $images.height() > $info.height();
+        },
+        info_fits_on_screen = function(){
+          return $info.height() < $window.height() - $footer.height();
+        },
+        fix_scroll_on = function(){
+          var edge = $info.offset().top;
+          $window.on('scroll.checker resize.checker touchmove.checker', function() {
+            var scrolled = $window.scrollTop(),
+                scroll_has_gone_over_the_edge = scrolled > edge,
+                fix = scroll_has_gone_over_the_edge && images_are_higher_than_info() && info_fits_on_screen(),
+                left = $item.offset().left + $images.width() + parseInt($images.css('margin-right'));
+
+            $info.toggleClass('fixed', fix);
+            $info.css('left', left);
+          });
+        }, fix_scroll_off = function(){
+          $window.off('scroll.checker resize.checker touchmove.checker');
+        };
+
+    $(document)
+      .on('click', '.product .images a.image', function(e){
+        if(is_mobile()){
+          e.preventDefault();
+          show(+1);
+        }
+      })
+      .on('click', '[data-action=show-next-image]', function(e){
+        if(is_mobile()){
+          e.preventDefault();
+          show(+1);
+        }
+      })
+      .on('click', '[data-action=show-prev-image]', function(e){
+        if(is_mobile()){
+          e.preventDefault();
+          show(-1);
+        }
+      });
+
+    $window.on('resize', function(){
+      if(is_on_mobile && !is_mobile()){
+        fix_scroll_on();
+        $image.show();
+        is_on_mobile = false;
+      } else if (!is_on_mobile && is_mobile()){
+        show_with_index(index);
+        fix_scroll_off();
+        is_on_mobile = true;
+      }
+    });
+
+    if(is_mobile()){
+      $image.hide().eq(index).show();
+    } else {
+      California.initFullsizable();
+      fix_scroll_on();
+    }
+
+    // selectors controller
+    new Shopify.OptionSelectors('productSelect', {
+      product: window.product,
+      enableHistoryState: true,
+      onVariantSelected: function(variant, selector) {
+        var $addToCart = $('#addToCart'),
+            $productPrice = $('#productPrice'),
+            $comparePrice = $('#comparePrice'),
+            $productStock = $('#productStock');
+
+        if (variant){
+
+          // Update variant image, if one is set
+          if (variant.featured_image) {
+            var $image = $('#image_' + variant.featured_image.id),
+                padding = 15,
+                header_height = 200,
+                offset = $image.offset().top - padding;
+            
+            if (offset < header_height){
+              offset = 0;
+            }
+
+            if (is_mobile()){
+              show_with_index($image.parent().index());
+            } else if (images_are_higher_than_info() && info_fits_on_screen()) {
+              $('body,html').animate({
+                scrollTop: offset
+              }, {
+                duration: 600
+              });
+            } else {
+              var $featured_image = $image.parents('.image'),
+                  $first_image = $('.image').first();
+
+              $featured_image.insertBefore($first_image);
+            }
+
+            // Update index in case it goes to the mobile version
+            index = $image.parent().index();
+          }
+
+          // Select a valid variant if available
+          if (variant.available) {
+            // We have a valid product variant, so enable the submit button
+            $addToCart.removeClass('disabled').prop('disabled', false).val({{ 'products.product.add_to_cart' | t | json }});
+          } else {
+            // Variant is sold out, disable the submit button
+            $addToCart.val({{ 'products.product.sold_out' | t | json }}).addClass('disabled').prop('disabled', true);
+          }
+
+          // Regardless of stock, update the product price
+          $productPrice.html(Shopify.formatMoney(variant.price, window.product.money_format));
+
+          // Update inventory tracking if it's setup
+          if (variant.inventory_management == 'shopify') {
+            $productStock.show().find('span.units').html(variant.inventory_quantity);
+          } else {
+            $productStock.hide();
+          }
+
+          // Also update and show the product's compare price if necessary
+          if (variant.compare_at_price > variant.price){
+            $comparePrice
+              .html(Shopify.formatMoney(variant.compare_at_price, window.product.money_format))
+              .show();
+          } else {
+            $comparePrice.hide();
+          }
+
+        } else {
+          // The variant doesn't exist, disable submit button.
+          // This may be an error or notice that a specific variant is not available.
+          // To only show available variants, implement linked product options:
+          //   - http://docs.shopify.com/manual/configuration/store-customization/advanced-navigation/linked-product-options
+          $addToCart.val({{ 'products.product.unavailable' | t | json }}).addClass('disabled').prop('disabled', true);
+        }
+      }
+    });
+
+    if(window.product.hide_selectors){
+      $('.selector-wrapper').hide();
+    } else {
+      $('.selector-wrapper select').wrap( "<div class='select'></div>");
+      $('.select').append("<div class='arrow'><i class='fa fa-chevron-down fa-lg'></i></div>")
+    }
+
+    if(window.product.add_label){
+//       $('.selector-wrapper:eq(0)').prepend('<label>' + window.product.label + '</label>');
+    }
+  }
+};
+
+California.initAddressesPage = function(){
+  var $body = $('body');
+
+  if ($body.hasClass('template-customers-addresses') && window.customer_addresses){
+    // Initialize observers on address selectors
+    new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {
+      hideElement: 'address_province_container_new'
+    });
+
+    // Setup province selector on each customer address
+    for(var i in window.customer_addresses){
+      var id = window.customer_addresses[i];
+      new Shopify.CountryProvinceSelector('address_country_' + id, 'address_province_' + id, {
+        hideElement: 'address_province_container_' + id
+      });
+    }
+
+    // Contents of customer_area.js (global asset)
+    Shopify.CustomerAddress = {
+      toggleForm: function(id) {
+        var $form = $('#edit_address_' + id),
+            $button = $('#view_address_' + id);
+        
+        $form.toggle();
+        $button.toggle();
+
+        if ($form.is(':visible')){
+          $('input:not([type=hidden])', $form).first().focus()
+          $('body,html').animate({ scrollTop: $form.offset().top}, { duration: 600 });
+        }
+
+        return false;
+      },
+
+      toggleNewForm: function() {
+        var $form = $('#add_address'),
+            $button = $('#add_new_address_button');
+
+        $form.toggle();
+        $button.toggle();
+
+        if ($form.is(':visible')){
+          $('input:not([type=hidden])', $form).first().focus()
+          $('body,html').animate({ scrollTop: $form.offset().top}, { duration: 600 });
+        }
+        return false;
+      },
+
+      destroy: function(id, confirm_msg) {
+        if (confirm(confirm_msg || {{ 'customer.addresses.delete_question' | t | json }})) {
+          Shopify.postLink('/account/addresses/'+id, {'parameters': {'_method': 'delete'}});
+        }
+      }
+    }
+  }
+};
+
+California.initSearchPage = function(){
+  var $body = $('body');
+
+  if ($body.hasClass('template-search')){
+    $(document)    
+      .on('submit', 'form.search-bar', function(e){
+        var $form = $(this);
+        $.ajax({
+           type: 'POST',
+           dataType: 'html',
+           url: $form.attr('action'),
+           data: $form.serialize(),
+           success: function(data){
+            $('.main-content').replaceWith($(data).find('.main-content'));
+            $(document).trigger('products_rendered');
+           }
+         });
+        e.preventDefault();
+      });
+  }
+};
+
+California.initIE = function(){
+  // add ie class
+  if (window.is_ie) {
+    $("html").addClass("ie");
+  }
+};
+
+California.initEasings = function(){
+  var baseEasings = {};
+
+  $.each( [ "Quad", "Cubic", "Quart", "Quint", "Expo" ], function( i, name ) {
+    baseEasings[ name ] = function( p ) {
+      return Math.pow( p, i + 2 );
+    };
+  });
+
+  $.extend( baseEasings, {
+    Sine: function( p ) {
+      return 1 - Math.cos( p * Math.PI / 2 );
+    },
+    Circ: function( p ) {
+      return 1 - Math.sqrt( 1 - p * p );
+    },
+    Elastic: function( p ) {
+      return p === 0 || p === 1 ? p :
+        -Math.pow( 2, 8 * (p - 1) ) * Math.sin( ( (p - 1) * 80 - 7.5 ) * Math.PI / 15 );
+    },
+    Back: function( p ) {
+      return p * p * ( 3 * p - 2 );
+    },
+    Bounce: function( p ) {
+      var pow2,
+        bounce = 4;
+
+      while ( p < ( ( pow2 = Math.pow( 2, --bounce ) ) - 1 ) / 11 ) {}
+      return 1 / Math.pow( 4, 3 - bounce ) - 7.5625 * Math.pow( ( pow2 * 3 - 2 ) / 22 - p, 2 );
+    }
+  });
+
+  $.each( baseEasings, function( name, easeIn ) {
+    $.easing[ "easeIn" + name ] = easeIn;
+    $.easing[ "easeOut" + name ] = function( p ) {
+      return 1 - easeIn( 1 - p );
+    };
+    $.easing[ "easeInOut" + name ] = function( p ) {
+      return p < 0.5 ?
+        easeIn( p * 2 ) / 2 :
+        1 - easeIn( p * -2 + 2 ) / 2;
+    };
+  });
+};
+
+California.initPlaceholders = function(){
+  $('input, textarea').placeholder();
+};

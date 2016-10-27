@@ -1,0 +1,16 @@
+{% if collection %}
+  {% if collection.previous_product or collection.next_product %}
+    <div class="navigation">
+      {% if collection.previous_product %}
+        <a class="btn icon" href="{{ collection.previous_product }}" alt="Next product" data-action="keydown" data-key="37"><i class="fa fa-arrow-left"></i></a>
+      {% else %}
+        <a class="btn icon end" href=""><i class="fa fa-arrow-left"></i></a>
+      {% endif %}
+      {% if collection.next_product %}
+        <a class="btn icon" href="{{ collection.next_product }}"  alt="Previous product" data-action="keydown" data-key="39"><i class="fa fa-arrow-right"></i></a>
+      {% else %}
+        <a class="btn icon end" href=""><i class="fa fa-arrow-right"></i></a>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endif %}

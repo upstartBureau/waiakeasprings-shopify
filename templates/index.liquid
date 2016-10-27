@@ -1,0 +1,40 @@
+{% include 'plans-module' %}
+{% if settings.home_collection != "1" or settings.home_articles != "1" or settings.home_pitch != "no_pitch" %}
+	{{ pages.plans.content }}
+    <div class="content description">
+        <div class="titles">
+            <h2>As Seen In</h2>
+            {{ pages.press.content }}
+        </div>
+    </div>
+<!-- 	<img class="press" src="{{ 'logos.png' | asset_url }}"> -->
+	<ul class="press-logos">
+      <li><a href="http://abcnews.go.com/Lifestyle/innovative-food-products/story?id=30449717" target="_blank"><img class="press" src="{{ 'press1.png' | asset_url }}"></a></li>
+      <li><a href="http://www.organicauthority.com/the-benefits-of-an-alkaline-diet-does-it-really-work/" target="_blank"><img class="press" src="{{ 'press2.png' | asset_url }}"></a></li>
+      <li><a href="http://www.forbes.com/forbes/welcome/" target="_blank"><img class="press" src="{{ 'press3.png' | asset_url }}"></a></li>
+      <li><a href="http://dujour.com/gallery/luxury-bottled-waters/#slide-1" target="_blank"><img class="press" src="{{ 'press4.png' | asset_url }}"></a></li>
+      <li><a href="http://greatideas.people.com/2015/06/01/kelly-ripa-high-alkaline-cleanse-diet-trend/" target="_blank"><img class="press" src="{{ 'press5.png' | asset_url }}"></a></li>
+      <li><a href="http://www.environmentalleader.com/2015/07/06/the-sustainability-of-bottled-water/" target="_blank"><img class="press" src="{{ 'press6.png' | asset_url }}"></a></li>
+	</ul>
+    <hr>
+    <div class="content description">
+        <div class="titles center reviews">
+            <h2>Product Reviews</h2>
+            <img src="{{ 'stars.jpg' | asset_url }}" alt="{{ shop.name }}" width="130px">
+            {{ pages.reviews.content }}
+        </div>
+    </div>
+	<br>
+    {% if settings.home_collection == "1" and settings.home_pitch != "no_pitch" %}
+        <div class="row">
+            <a href="{{ settings.home_pitch_button_to_store_url }}" class="btn action small">{{ 'home_page.pitch.button_to_store' | t }}</a>
+        </div>
+    {% endif %}
+    
+    {% if settings.home_articles == "2" %}
+        {% assign blog = blogs[settings.home_articles_blog] %}
+        {% for article in blog.articles limit:settings.home_articles_limit %}
+            {% include 'post' %}
+        {% endfor %}
+    {% endif %}
+{% endif %}

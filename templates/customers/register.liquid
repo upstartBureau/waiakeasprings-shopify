@@ -1,0 +1,35 @@
+{% layout settings.customer_layout %}
+{% include 'alert-header' %}
+<div class="content">
+  <h2>{{ 'customer.register.title' | t }}</h2>
+  <h4>{{ 'customer.register.subtitle' | t }}</h4>
+  {% form 'create_customer' %}
+    {% if form.errors %}
+      {% assign alert = form.errors | default_errors %}
+    {% endif %}
+    <div class="row">
+      <input class="full{% if form.errors contains 'first_name' %} error{% endif %}" name="customer[first_name]" id="first_name" placeholder="{{ 'customer.register.first_name' | t }}" autocapitalize="words" type="text" autofocus="autofocus">
+    </div>
+    <div class="row">
+      <input class="full{% if form.errors contains 'last_name' %} error{% endif %}" name="customer[last_name]" id="last_name" placeholder="{{ 'customer.register.last_name' | t }}" type="text" autocapitalize="words">
+    </div>
+    <div class="row">
+      <input class="full{% if form.errors contains 'email' %} error{% endif %}" name="customer[email]" id="email" placeholder="{{ 'customer.register.email' | t }}" type="email" autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="row">
+      <input class="full{% if form.errors contains 'password' %} error{% endif %}" name="customer[password]" id="create_password" placeholder="{{ 'customer.register.password' | t }}" type="password">
+    </div>
+
+    <div class="row">
+      <input class="btn action full" data-action="process" data-message="{{ 'customer.register.submitting' | t }}" name="commit" type="submit" value="{{ 'customer.register.submit' | t }}">
+    </div>
+    <div class="row left">
+      {% include 'get-url-to-collections' %}
+      {% capture link %}
+        <a class="underscore" href="/pages/plans">{{ 'customer.register.return_to_store' | t }}</a>
+      {% endcapture %}
+      {{ 'general.navigation.cancel_html' | t: link: link }}
+    </div>
+  {% endform %}
+</div>
+{% include 'alert-footer' %}

@@ -1,0 +1,22 @@
+<div class="header">
+  <div class="content">
+    <div class="breadcrumb">
+      {% comment %}{% if template == "cart" %}
+      <a href="/pages/plans"><i class="fa fa-long-arrow-left"></i><span class="hide-mobile back-link"><strong>back to shop</strong></span></a>
+          {% endif %}{% endcomment %}
+      {% if page.handle == 'plans' %}
+      <a style="" class="backk-link no-style" href="/"><i class="fa fa-long-arrow-left"></i><span class="hide-mobile back-link"><strong>back to home</strong></span></a>
+      {% endif %}
+      <h1 class="{% if page.handle contains "plans" %}logo-plans{% else %}logo{% endif %}" itemscope itemtype="http://schema.org/Organization">
+        <a href="{{ shop.url }}" itemprop="url">
+            <img src="{{ 'waiakea-logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" width="70px">
+        </a>
+      </h1>
+      <div class="sections">
+        {% include 'breadcrumb' %}
+    </div>
+    {% include 'header-nav' %}
+  </div>
+</div>
+  
+  

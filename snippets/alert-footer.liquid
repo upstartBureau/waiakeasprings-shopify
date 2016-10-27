@@ -1,0 +1,7 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    {% if alert %}
+      $('.alert').show().find('.content').html("{{ alert | strip_html }}");
+    {% endif %}
+  });
+</script>

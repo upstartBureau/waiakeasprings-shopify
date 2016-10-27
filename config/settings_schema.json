@@ -1,0 +1,1485 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0686\/0713\/t\/7\/assets\/theme-logo.png?2846633219205665009",
+    "settings": [
+      {
+        "type": "header",
+        "content": "California Theme"
+      },
+      {
+        "type": "paragraph",
+        "content": "Please review the [documentation](http:\/\/california-theme-generic.myshopify.com\/pages\/documentation) or contact us at [support@smallvictories.co](mailto:support@smallvictories.co) if you require any support for the theme."
+      },
+      {
+        "type": "paragraph",
+        "content": "For updates and tips please follow us on Twitter: [@californiatheme](https:\/\/www.twitter.com\/californiatheme)."
+      },
+      {
+        "type": "paragraph",
+        "content": "You are using version 2.4 of the theme."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "color_call_to_action",
+        "label": "Call to Action Color",
+        "default": "#1BA1E2",
+        "info": "Used for primary buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_alert",
+        "label": "Alert Color",
+        "default": "#ff555d",
+        "info": "Used for sale and form alerts"
+      },
+      {
+        "type": "color",
+        "id": "color_notice",
+        "label": "Notice Color",
+        "default": "#ffffcc",
+        "info": "Used for highlighting important text"
+      },
+      {
+        "type": "header",
+        "content": "Home Page — Hero"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_logo",
+        "label": "Home Logo Text Color"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_line",
+        "label": "Hero Separation Line"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_subtitle",
+        "label": "Hero Subtitle"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_button",
+        "label": "Hero Line Buttons Text"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_button_hover",
+        "label": "Hero Line Buttons Text Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_button_border",
+        "label": "Hero Line Buttons Border"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_button_border_hover",
+        "label": "Hero Line Buttons Border Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_icons",
+        "label": "Hero Icon Buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_icons_hover",
+        "label": "Hero Icon Button Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_license",
+        "label": "Hero License Text",
+        "info": "When using the default California preset background image."
+      },
+      {
+        "type": "color",
+        "id": "color_hero_license_link",
+        "label": "Hero License Text Links",
+        "info": "When using the default California preset background image."
+      },
+      {
+        "type": "color",
+        "id": "color_hero_arrow",
+        "label": "Hero Arrow"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_side_menu",
+        "label": "Hero Side Menu"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_side_menu_hover",
+        "label": "Hero Side Menu Mouseover"
+      },
+      {
+        "type": "header",
+        "content": "Home Page - Pitch"
+      },
+      {
+        "type": "select",
+        "id": "color_pitch_number_fade",
+        "label": "Pitch Numbers",
+        "options": [
+          {
+            "value": "0",
+            "label": "Fade 0%"
+          },
+          {
+            "value": "10",
+            "label": "Fade 10%"
+          },
+          {
+            "value": "20",
+            "label": "Fade 20%"
+          },
+          {
+            "value": "30",
+            "label": "Fade 30%"
+          },
+          {
+            "value": "40",
+            "label": "Fade 40%"
+          },
+          {
+            "value": "50",
+            "label": "Fade 50%"
+          },
+          {
+            "value": "60",
+            "label": "Fade 60%"
+          },
+          {
+            "value": "70",
+            "label": "Fade 70%"
+          },
+          {
+            "value": "80",
+            "label": "Fade 80%"
+          },
+          {
+            "value": "90",
+            "label": "Fade 90%"
+          }
+        ],
+        "info": "Please adjust the level of fade so the numbers show properly on the screen."
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "color_header_logo",
+        "label": "Header Logo Text Color"
+      },
+      {
+        "type": "color",
+        "id": "color_header_section",
+        "label": "Header Sections"
+      },
+      {
+        "type": "color",
+        "id": "color_header_section_hover",
+        "label": "Header Sections Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_header_button",
+        "label": "Header Line Buttons Text"
+      },
+      {
+        "type": "color",
+        "id": "color_header_button_hover",
+        "label": "Header Line Buttons Text Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_header_button_border",
+        "label": "Header Line Buttons Border"
+      },
+      {
+        "type": "color",
+        "id": "color_header_button_border_hover",
+        "label": "Header Line Buttons Border Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_header_icons",
+        "label": "Header Icon Buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_header_icons_hover",
+        "label": "Header Icon Button Mouseover"
+      },
+      {
+        "type": "color",
+        "id": "color_header_bg",
+        "label": "Header Background"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_header",
+        "label": "Footer Headers"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_body",
+        "label": "Footer Body"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_links",
+        "label": "Footer Links"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_icons",
+        "label": "Footer Icons"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_bg",
+        "label": "Footer Background"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headers"
+      },
+      {
+        "type": "select",
+        "id": "google_font_family_headers",
+        "label": "Choose font family",
+        "options": [
+          {
+            "group": "Sans Serif",
+            "value": "Arimo",
+            "label": "Arimo"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Armata",
+            "label": "Armata"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Cabin",
+            "label": "Cabin"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Dosis",
+            "label": "Dosis"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Lato",
+            "label": "Lato"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Montserrat",
+            "label": "Montserrat"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Open+Sans",
+            "label": "Open Sans"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Oswald",
+            "label": "Oswald"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Raleway",
+            "label": "Raleway"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Roboto",
+            "label": "Roboto"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Signika",
+            "label": "Signika"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Ubuntu",
+            "label": "Ubuntu"
+          },
+          {
+            "group": "Serif",
+            "value": "Arvo",
+            "label": "Arvo"
+          },
+          {
+            "group": "Serif",
+            "value": "Bitter",
+            "label": "Bitter"
+          },
+          {
+            "group": "Serif",
+            "value": "Bree Serif",
+            "label": "Bree Serif"
+          },
+          {
+            "group": "Serif",
+            "value": "Droid+Serif",
+            "label": "Droid Serif"
+          },
+          {
+            "group": "Serif",
+            "value": "Lora",
+            "label": "Lora"
+          },
+          {
+            "group": "Serif",
+            "value": "Merriweather",
+            "label": "Merriweather"
+          },
+          {
+            "group": "Serif",
+            "value": "Nixie+One",
+            "label": "Nixie One"
+          },
+          {
+            "group": "Serif",
+            "value": "Playfair+Display",
+            "label": "Playfair Display"
+          },
+          {
+            "group": "Serif",
+            "value": "PT+Serif",
+            "label": "PT Serif"
+          },
+          {
+            "group": "Serif",
+            "value": "Roboto+Slab",
+            "label": "Roboto Slab"
+          },
+          {
+            "group": "Display",
+            "value": "Bangers",
+            "label": "Bangers"
+          },
+          {
+            "group": "Display",
+            "value": "Chewy",
+            "label": "Chewy"
+          },
+          {
+            "group": "Display",
+            "value": "Lobster",
+            "label": "Lobster"
+          },
+          {
+            "group": "Handwriting",
+            "value": "Pacifico",
+            "label": "Pacifico"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Body"
+      },
+      {
+        "type": "select",
+        "id": "google_font_family_regular",
+        "label": "Choose font family",
+        "options": [
+          {
+            "group": "Sans Serif",
+            "value": "Arimo",
+            "label": "Arimo"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Armata",
+            "label": "Armata"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Cabin",
+            "label": "Cabin"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Dosis",
+            "label": "Dosis"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Lato",
+            "label": "Lato"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Montserrat",
+            "label": "Montserrat"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Open+Sans",
+            "label": "Open Sans"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Oswald",
+            "label": "Oswald"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Raleway",
+            "label": "Raleway"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Roboto",
+            "label": "Roboto"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Signika",
+            "label": "Signika"
+          },
+          {
+            "group": "Sans Serif",
+            "value": "Ubuntu",
+            "label": "Ubuntu"
+          },
+          {
+            "group": "Serif",
+            "value": "Arvo",
+            "label": "Arvo"
+          },
+          {
+            "group": "Serif",
+            "value": "Bitter",
+            "label": "Bitter"
+          },
+          {
+            "group": "Serif",
+            "value": "Bree Serif",
+            "label": "Bree Serif"
+          },
+          {
+            "group": "Serif",
+            "value": "Droid+Serif",
+            "label": "Droid Serif"
+          },
+          {
+            "group": "Serif",
+            "value": "Lora",
+            "label": "Lora"
+          },
+          {
+            "group": "Serif",
+            "value": "Merriweather",
+            "label": "Merriweather"
+          },
+          {
+            "group": "Serif",
+            "value": "Nixie+One",
+            "label": "Nixie One"
+          },
+          {
+            "group": "Serif",
+            "value": "Playfair+Display",
+            "label": "Playfair Display"
+          },
+          {
+            "group": "Serif",
+            "value": "PT+Serif",
+            "label": "PT Serif"
+          },
+          {
+            "group": "Serif",
+            "value": "Roboto+Slab",
+            "label": "Roboto Slab"
+          },
+          {
+            "group": "Display",
+            "value": "Bangers",
+            "label": "Bangers"
+          },
+          {
+            "group": "Display",
+            "value": "Chewy",
+            "label": "Chewy"
+          },
+          {
+            "group": "Display",
+            "value": "Lobster",
+            "label": "Lobster"
+          },
+          {
+            "group": "Handwriting",
+            "value": "Pacifico",
+            "label": "Pacifico"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Home Page Logo"
+      },
+      {
+        "type": "select",
+        "id": "hero_logo",
+        "label": "Options",
+        "options": [
+          {
+            "value": "1",
+            "label": "Use Store Name"
+          },
+          {
+            "value": "2",
+            "label": "Use Store Name in UPPERCASE"
+          },
+          {
+            "value": "3",
+            "label": "Use Custom Image"
+          }
+        ],
+        "default": "2"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom Image",
+        "max-width": 1200,
+        "max-height": 500,
+        "info": "Maximum logo dimensions are 1200px wide by 500px high. The uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "hero_logo_image_max_width",
+        "label": "Custom Image Max Width",
+        "info": "Defines the CSS max-width. The submited value will be forced to be lower or equal to 600px."
+      },
+      {
+        "type": "header",
+        "content": "Header Logo"
+      },
+      {
+        "type": "select",
+        "id": "header_logo",
+        "label": "Options",
+        "options": [
+          {
+            "value": "1",
+            "label": "Use Store Name"
+          },
+          {
+            "value": "2",
+            "label": "Use Store Name in UPPERCASE"
+          },
+          {
+            "value": "3",
+            "label": "Use Custom Image"
+          }
+        ],
+        "default": "2"
+      },
+      {
+        "type": "image",
+        "id": "header-logo.png",
+        "label": "Custom Image",
+        "max-height": 66,
+        "info": "Logo height should be 66px."
+      }
+    ]
+  },
+  {
+    "name": "Home Page",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "You can edit all the text in your store at: Theme options > Edit Languages."
+      },
+      {
+        "type": "paragraph",
+        "content": "More instructions [here](http:\/\/california-theme-generic.myshopify.com\/pages\/documentation#home-1)."
+      },
+      {
+        "type": "paragraph",
+        "content": "Please, be aware, you will not have access to this option until you purchase the theme."
+      },
+      {
+        "type": "checkbox",
+        "id": "home_footer_hidden",
+        "label": "Disable page footer in the home page"
+      }
+    ]
+  },
+  {
+    "name": "Home Page — Hero",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "hero_height",
+        "label": "Hero Height",
+        "info": "IMPORTANT: Be aware, that depending on the content you are having on the hero there will be cases that the height might be higher than the one you choose here.",
+        "options": [
+          {
+            "value": "100%",
+            "label": "100% of the screen"
+          },
+          {
+            "value": "90%",
+            "label": "90% of the screen"
+          },
+          {
+            "value": "80%",
+            "label": "80% of the screen"
+          },
+          {
+            "value": "70%",
+            "label": "70% of the screen"
+          },
+          {
+            "value": "60%",
+            "label": "60% of the screen"
+          },
+          {
+            "value": "50%",
+            "label": "50% of the screen"
+          },
+          {
+            "value": "40%",
+            "label": "40% of the screen"
+          },
+          {
+            "value": "30%",
+            "label": "30% of the screen"
+          },
+          {
+            "value": "20%",
+            "label": "20% of the screen"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "hero_alignment",
+        "label": "Hero Text Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Line"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_line",
+        "label": "Hide line between logo and tagline"
+      },
+      {
+        "type": "header",
+        "content": "Tagline"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_show_tagline_on_mobile",
+        "label": "Show tagline text on mobile",
+        "info": "By default the tagline is hidden on mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_tagline",
+        "label": "Always hide tagline"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "text",
+        "id": "hero_button_to_store_url",
+        "label": "Hero Button To Store Link"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_button_to_store",
+        "label": "Hide Hero Button To Store"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_button_to_scroll",
+        "label": "Hide Hero Button To Scroll Down The Page"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_search",
+        "label": "Hide Hero Top Right Search Button"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_menu",
+        "label": "Hide Hero Top Right Navigation Menu Button"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_arrow",
+        "label": "Hide Hero Bottom Right Arrow"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_newsletter_enable",
+        "label": "Show Newsletter Field"
+      },
+      {
+        "type": "text",
+        "id": "hero_newsletter_form_action",
+        "label": "MailChimp Form Action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      },
+      {
+        "type": "header",
+        "content": "Background"
+      },
+      {
+        "type": "select",
+        "id": "hero_background",
+        "label": "Options",
+        "options": [
+          {
+            "value": "1",
+            "label": "Use Default Background Image"
+          },
+          {
+            "value": "2",
+            "label": "Use Custom Background Image"
+          },
+          {
+            "value": "3",
+            "label": "Use Background Color"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "select",
+        "id": "name",
+        "label": "Choose Default Background Image",
+        "options": [
+          {
+            "value": "generic",
+            "label": "Same as California Preset"
+          },
+          {
+            "value": "startup",
+            "label": "Same as Cartomaps Preset"
+          },
+          {
+            "value": "fashion",
+            "label": "Same as Sundays Preset"
+          },
+          {
+            "value": "art",
+            "label": "Same as Kentia Preset"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "hero-background.jpg",
+        "label": "Choose Custom Background Image",
+        "info": "Recommended: jpg, between 500 KB and 1 MB. If you are looking for free stock images, check [this blog post](http:\/\/www.shopify.com\/blog\/17156388-22-awesome-websites-with-stunning-free-stock-images)."
+      },
+      {
+        "type": "color",
+        "id": "color_hero_bg",
+        "label": "Choose Background Color",
+        "info": "It shows when there is no background image"
+      },
+      {
+        "type": "select",
+        "id": "hero_background_position",
+        "label": "Custom Background Image Position",
+        "options": [
+          {
+            "value": "center center",
+            "label": "center center"
+          },
+          {
+            "value": "center top",
+            "label": "center top"
+          },
+          {
+            "value": "center 25%",
+            "label": "center 25%"
+          },
+          {
+            "value": "center 75%",
+            "label": "center 75%"
+          },
+          {
+            "value": "center bottom",
+            "label": "center bottom"
+          },
+          {
+            "value": "left center",
+            "label": "left center"
+          },
+          {
+            "value": "25% center",
+            "label": "25% center"
+          },
+          {
+            "value": "75% center",
+            "label": "75% center"
+          },
+          {
+            "value": "right center",
+            "label": "right center"
+          },
+          {
+            "value": "left top",
+            "label": "left top"
+          },
+          {
+            "value": "right top",
+            "label": "right top"
+          },
+          {
+            "value": "left bottom",
+            "label": "left bottom"
+          },
+          {
+            "value": "right bottom",
+            "label": "right bottom"
+          }
+        ],
+        "info": "Horizontall and vertical positioning of the Background Image"
+      },
+      {
+        "type": "color",
+        "id": "color_hero_bg_overlay",
+        "label": "Custom Background Image Overlay Color",
+        "info": "To fade the background image"
+      },
+      {
+        "type": "select",
+        "id": "color_hero_bg_overlay_opacity",
+        "label": "Custom Background Image Overlay Opacity",
+        "options": [
+          {
+            "value": "0",
+            "label": "Transparent"
+          },
+          {
+            "value": "0.1",
+            "label": "Opacity 10%"
+          },
+          {
+            "value": "0.2",
+            "label": "Opacity 20%"
+          },
+          {
+            "value": "0.3",
+            "label": "Opacity 30%"
+          },
+          {
+            "value": "0.4",
+            "label": "Opacity 40%"
+          },
+          {
+            "value": "0.5",
+            "label": "Opacity 50%"
+          },
+          {
+            "value": "0.6",
+            "label": "Opacity 60%"
+          },
+          {
+            "value": "0.7",
+            "label": "Opacity 70%"
+          },
+          {
+            "value": "0.8",
+            "label": "Opacity 80%"
+          },
+          {
+            "value": "0.9",
+            "label": "Opacity 90%"
+          },
+          {
+            "value": "1",
+            "label": "Opacity 100%"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Animation"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_parallax",
+        "label": "Parallax animation on scrolling"
+      }
+    ]
+  },
+  {
+    "name": "Home Page — Pitch",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Pitch"
+      },
+      {
+        "type": "select",
+        "id": "home_pitch",
+        "label": "Options",
+        "options": [
+          {
+            "value": "no_pitch",
+            "label": "Don't show pitch"
+          },
+          {
+            "value": "full_pitch",
+            "label": "Show full pitch (6 reasons)"
+          },
+          {
+            "value": "half_pitch",
+            "label": "Show half pitch (3 reasons)"
+          }
+        ],
+        "default": "full_pitch"
+      },
+      {
+        "type": "checkbox",
+        "id": "hero_hide_paragraphs_mobile",
+        "label": "Hide pitch paragraphs on mobile"
+      },
+      {
+        "type": "text",
+        "id": "home_pitch_button_to_store_url",
+        "label": "Button Link",
+        "info": "Alert: if the home page is showing a preview collection this button will be hidden."
+      }
+    ]
+  },
+  {
+    "name": "Home Page — Featured Collection",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Featured Collection"
+      },
+      {
+        "type": "select",
+        "id": "home_collection",
+        "label": "Options",
+        "options": [
+          {
+            "value": "1",
+            "label": "Don't show any collection"
+          },
+          {
+            "value": "2",
+            "label": "Show selected collection"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "collection",
+        "id": "home_collection_collection",
+        "label": "Collection"
+      },
+      {
+        "type": "select",
+        "id": "home_collection_limit",
+        "label": "Limit of products",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          },
+          {
+            "value": "9",
+            "label": "9"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "14",
+            "label": "14"
+          },
+          {
+            "value": "15",
+            "label": "15"
+          },
+          {
+            "value": "16",
+            "label": "16"
+          },
+          {
+            "value": "18",
+            "label": "18"
+          },
+          {
+            "value": "20",
+            "label": "20"
+          },
+          {
+            "value": "21",
+            "label": "21"
+          },
+          {
+            "value": "22",
+            "label": "22"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "home_collection_button_to_store_url",
+        "label": "Button Link"
+      }
+    ]
+  },
+  {
+    "name": "Home Page — Featured Articles",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Featured Articles"
+      },
+      {
+        "type": "select",
+        "id": "home_articles",
+        "label": "Options",
+        "options": [
+          {
+            "value": "1",
+            "label": "Don't show any article"
+          },
+          {
+            "value": "2",
+            "label": "Show latest articles"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "blog",
+        "id": "home_articles_blog",
+        "label": "Blog"
+      },
+      {
+        "type": "select",
+        "id": "home_articles_limit",
+        "label": "Limit of articles",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "7",
+            "label": "7"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          },
+          {
+            "value": "9",
+            "label": "9"
+          },
+          {
+            "value": "10",
+            "label": "10"
+          }
+        ],
+        "default": "1"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Side Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "side_nav_linklist",
+        "label": "Links list"
+      },
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "select",
+        "id": "favicon",
+        "label": "Options",
+        "options": [
+          {
+            "value": "default",
+            "label": "Use Browser Default Favicon Image"
+          },
+          {
+            "value": "custom",
+            "label": "Use Custom Favicon Image"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Custom Favicon Image",
+        "max-width": 32,
+        "max-height": 32,
+        "info": "Maximum image size: 32x32 pixels. Inspiration: [50 Remarkable Favicons](http:\/\/www.smashingmagazine.com\/2007\/01\/31\/inspire-yourself-50-remarkable-favicons\/)"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_hidden",
+        "label": "Remove footer from all pages"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_first_menu_linklist",
+        "label": "First column links list"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_second_menu_linklist",
+        "label": "Second column links list",
+        "info": "The page will look nicer if you complete this."
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_display_contact",
+        "label": "Show contact links"
+      },
+      {
+        "type": "text",
+        "id": "footer_contact_email",
+        "label": "Email address"
+      },
+      {
+        "type": "text",
+        "id": "footer_contact_twitter",
+        "label": "Twitter username"
+      },
+      {
+        "type": "text",
+        "id": "footer_contact_telephone",
+        "label": "Telephone number"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_display_networks",
+        "label": "Show networks links"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_facebook",
+        "label": "Facebook page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_twitter",
+        "label": "Twitter page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_pinterest",
+        "label": "Pinterest page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_google",
+        "label": "Google+ page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_instagram",
+        "label": "Instagram page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_linkedin",
+        "label": "Linkedin page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_flickr",
+        "label": "Flickr page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_yelp",
+        "label": "Yelp page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_vimeo",
+        "label": "Vimeo page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_youtube",
+        "label": "Youtube page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_tumblr",
+        "label": "Tumblr page link"
+      },
+      {
+        "type": "text",
+        "id": "footer_networks_wordpress",
+        "label": "Wordpress page link"
+      },
+      {
+        "type": "header",
+        "content": "Extras"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": "Show Newsletter Field"
+      },
+      {
+        "type": "text",
+        "id": "footer_newsletter_form_action",
+        "label": "MailChimp Form Action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_show_payments",
+        "label": "Show payment icons",
+        "info": "When payments are enabled"
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product Inventory"
+      },
+      {
+        "type": "paragraph",
+        "content": "Check [this tutorial](http:\/\/docs.shopify.com\/manual\/your-store\/products\/track-inventory) to activate tracking on your product inventory."
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_available_stock_units",
+        "label": "Show available stock units on products"
+      },
+      {
+        "type": "header",
+        "content": "Share Buttons"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_share_buttons",
+        "label": "Show share buttons"
+      }
+    ]
+  },
+  {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "select",
+        "id": "collections_layout",
+        "label": "Layout",
+        "options": [
+          {
+            "value": "one-column",
+            "label": "One column"
+          },
+          {
+            "value": "two-columns",
+            "label": "Two columns"
+          },
+          {
+            "value": "three-columns",
+            "label": "Three columns"
+          },
+          {
+            "value": "four-columns",
+            "label": "Four columns"
+          },
+          {
+            "value": "six-columns",
+            "label": "Six columns"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collections_preview_limit",
+        "label": "Preview limit of products",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Allow notes",
+        "info": "Special instructions for seller input box."
+      },
+      {
+        "type": "checkbox",
+        "id": "skip_cart_page",
+        "label": "Disable cart",
+        "info": "Goes straight to the Checkout Page"
+      }
+    ]
+  }
+]

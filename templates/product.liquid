@@ -1,0 +1,111 @@
+<div class="content product" itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}">
+  <div class="item">
+    {% include 'product-nav' %}
+    {% include 'product-images-nav' %}
+    <div class="images">
+      {% if product.images.size > 1 %}
+        <ul class="image images-count bxslider">
+          {% for image in product.images %}
+            <li>
+              <img src="{{ image.src | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" id="image_{{ image.id }}">
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {% for image in product.images %}
+          <div class="image images-count" >
+            <img src="{{ image.src | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" id="image_{{ image.id }}">
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% if collection %}
+        <a class="back-link" href="/{{ collection.handle }}">
+          <i class="fa fa-arrow-left"></i>
+          Back to {{ collection.title }}
+        </a>
+      {% endif %}
+      <a href="http://store.waiakeasprings.com/pages/edenprojects" title="Eden Projects">
+        <span>
+          <img src="https://cdn.shopify.com/s/files/1/0232/9493/files/5tree_Icon_Horizontal_b5d186e3-36f9-4e5e-ae7f-70df8bab6d7f_large.png?17322978479394992219" alt="">
+        </span>
+      </a>
+    </div>
+    <div class="info">
+      <h2 itemprop="name">
+        {{ product.title }}
+      </h2>
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        {% assign variant = product.selected_or_first_available_variant %}
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+        {% if product.available %}
+          <link itemprop="availability" href="http://schema.org/InStock">
+        {% else %}
+          <link itemprop="availability" href="http://schema.org/OutOfStock">
+        {% endif %}
+        {% if product.compare_at_price > product.price %}
+          <h3 class="price striped" id="comparePrice">{{ product.compare_at_price_max | money }}</h3>
+        {% endif %}
+        <h3 class="price {{product.id}}" itemprop="price" id="productPrice">
+          {{ product.price | money }}
+        </h3>
+        <span style="color:#149dd1; font-size:22px; margin-left:10px;">
+          {{ product.metafields.save.extra }}
+        </span>
+      </div>
+      {% if settings.product_show_available_stock_units %} {% capture units %}
+        <span class="units">
+          {{ product.selected_or_first_available_variant.inventory_quantity }}
+        </span>
+          {% endcapture %}
+        <div class="description stock" id="productStock">
+          {{ 'products.product.available_units_html' | t: units: units }}
+        </div>
+      {% endif %}
+      <form action="/cart/add" data-productid="{{product.id}}" method="post" enctype="multipart/form-data">
+        <select name="id" data-productid="{{product.id}}" id="productSelect" class="product-variants">
+          {% for variant in product.variants %}
+            {% if variant %}
+              <option value="{{variant.id}}" data-price="{{ variant.price | money_without_currency | remove: ','}}" {% if variant == product.selected_variant  %} selected="selected" {% endif %}>
+                {{ variant.title }} - {{ variant.price | money_with_currency }}
+              </option>
+            {% else %}
+              <option value="{{variant.id}}" data-price="{{ variant.price | money_without_currency | remove: ','}}" {% if variant == product.first_available_variant %} selected="selected" {% endif %}>
+                {{ variant.title }} - {{ variant.price | money_with_currency }}
+              </option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      <!-- {% if product.available %} -->
+        {% include 'subscription-product' %}{% endif %}
+          <input type="hidden" id="quantity" name="quantity" value="1" min="1">
+        {% if settings.skip_cart_page %}
+          <input type="hidden" name="return_to" value="/checkout" />
+        {% endif %}
+        <div class="description" itemprop="description">
+          {{ product.description }}
+        </div>
+        <input type="submit" name="add" class="btn action small submit addtocart" id="addToCart" value="{{ 'products.product.add_to_cart' | t }}" data-action="process" data-message="{{ 'products.product.adding_to_cart' | t }}">
+        <input type="submit" name="add" class="btn action small submit checkout" id="addToCart" value="Checkout Now" data-action="process" data-message="{{ 'products.product.adding_to_cart' | t }}">
+      </form>
+      <br>
+      {% if settings.product_show_share_buttons %}
+        {% include 'product-share' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    var Opt = document.getElementById('productSelect-option-1');
+    var $ColorOptionElement = $('#productSelect-option-1');
+    {% if product.images.size > 1 %}
+      var $Slider = $('.bxslider').bxSlider();
+      $ColorOptionElement.change(function() {
+        var $SelectedImage = $(this).prop('selectedIndex');
+        $Slider.goToSlide($SelectedImage);
+      });
+    {% endif %}
+  });
+</script>

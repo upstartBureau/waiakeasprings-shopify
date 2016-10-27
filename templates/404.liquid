@@ -1,0 +1,15 @@
+<div class="content fourhandredandfour">
+  <h2>{{ 'general.404.title' | t }}</h2>
+  <h4>{{ 'general.404.subtitle' | t }}</h4>
+  <div class="row extra">
+    {% include 'get-url-to-collections' %}
+    <a href="{{ collections_url }}" class="btn small action">{{ 'general.404.continue_shopping' | t }}</a>
+  </div>
+  <div class="row">
+    {% capture link %}
+      <a class="underscore" href="/" data-action="toggle-browse">{{ 'general.404.open_menu' | t }}</a>
+    {% endcapture %}
+    {{ 'general.navigation.cancel_html' | t: link: link }}
+  </div>
+
+</div>

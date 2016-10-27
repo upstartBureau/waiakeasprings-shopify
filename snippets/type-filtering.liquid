@@ -1,0 +1,13 @@
+{% if shop.types.size > 1  %}
+  <div class="select">
+    <select data-action="filter">
+      <option value="/collections/all">{{ 'collections.general.all_products' | t }}</option>
+      {% for type in shop.types %}
+        <option value="/collections/types?q={{ type }}"{% if collection.current_type == type %} selected="selected"{% endif %}>{{ type }}</option>
+      {% endfor %}
+    </select>
+    <div class="arrow">
+      <i class="fa fa-chevron-down fa-lg"></i>
+    </div>
+  </div>
+{% endif %}

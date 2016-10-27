@@ -1,0 +1,97 @@
+<div class="footer" role="contentinfo">
+  <div class="content">
+    <div class="extra row cols{% if settings.footer_second_menu_linklist == "" %} expanded{% endif %}">
+      {% if settings.footer_first_menu_linklist %}
+        <div class="col menu">
+          <h4 class="caps">{{ linklists[settings.footer_first_menu_linklist].title }}</h4>
+          <p>
+            {% for link in linklists[settings.footer_first_menu_linklist].links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>{% unless forloop.last %}<br>{% endunless %}
+            {% endfor %}
+          </p>
+        </div>
+      {% endif %}
+      {% if settings.footer_second_menu_linklist != "" %}
+        <div class="col menu">
+          <h4 class="caps">{{ linklists[settings.footer_second_menu_linklist].title }}</h4>
+          <p>
+            {% for link in linklists[settings.footer_second_menu_linklist].links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>{% unless forloop.last %}<br>{% endunless %}
+            {% endfor %}
+          </p>
+        </div>
+      {% endif %}
+      {% if settings.footer_display_contact %}
+        <div class="col">
+          <h4 class="caps">{{ 'layout.footer.contact' | t }}</h4>
+          <p>
+            {% if settings.footer_contact_twitter != '' %}<i class="fa fa-twitter"></i> <a href="https://twitter.com/{{ settings.footer_contact_twitter }}" target="_blank" title="{{ shop.name }} on Twitter">Twitter</a><br>{% endif %}
+            {% if settings.footer_contact_email != '' %}<i class="fa fa-envelope"></i> <a href="mailto:{{ settings.footer_contact_email }}">{{ 'layout.footer.email' | t }}</a><br>{% endif %}
+            {% if settings.footer_contact_telephone != ''  %}<i class="fa fa-phone"></i> <a href="tel:{{ settings.footer_contact_telephone }}">{{ settings.footer_contact_telephone }}</a>{% endif %}
+          </p>
+        </div>
+      {% endif %}
+      {% if settings.footer_display_networks %}
+        <div class="col">
+          <h4 class="caps">{{ 'layout.footer.social' | t }}</h4>
+          <p>
+            {% if settings.footer_networks_facebook != '' %}<a href="{{ settings.footer_networks_facebook }}" target="_blank" title="{{ shop.name }} on Facebook"><i class="fa fa-social fa-facebook"></i>Facebook</a><br>{% endif %}
+            {% if settings.footer_networks_twitter != '' %}<a href="{{ settings.footer_networks_twitter }}" target="_blank" title="{{ shop.name }} on Twitter"><i class="fa fa-social fa-twitter"></i>Twitter</a><br>{% endif %}
+            {% if settings.footer_networks_pinterest != '' %}<a href="{{ settings.footer_networks_pinterest }}" target="_blank" title="{{ shop.name }} on Pinterest"><i class="fa fa-social fa-pinterest"></i>Pinterest</a><br>{% endif %}
+            {% if settings.footer_networks_google != '' %}<a href="{{ settings.footer_networks_google }}" target="_blank" title="{{ shop.name }} on Google+"><i class="fa fa-social fa-google-plus-square"></i>Google+</a><br>{% endif %}
+            {% if settings.footer_networks_instagram != '' %}<a href="{{ settings.footer_networks_instagram }}" target="_blank" title="{{ shop.name }} on Instagram"><i class="fa fa-social fa-instagram"></i>Instagram</a><br>{% endif %}
+            {% if settings.footer_networks_linkedin != '' %}<a href="{{ settings.footer_networks_linkedin }}" target="_blank" title="{{ shop.name }} on Linkedin"><i class="fa fa-social fa-linkedin-square"></i>Linkedin</a><br>{% endif %}
+            {% if settings.footer_networks_flickr != '' %}<a href="{{ settings.footer_networks_flickr }}" target="_blank" title="{{ shop.name }} on Flickr"><i class="fa fa-social fa-flickr"></i>Flickr</a><br>{% endif %}
+            {% if settings.footer_networks_yelp != '' %}<a href="{{ settings.footer_networks_yelp }}" target="_blank" title="{{ shop.name }} on Yelp"><i class="fa fa-social fa-yelp"></i>Yelp</a><br>{% endif %}
+            {% if settings.footer_networks_vimeo != '' %}<a href="{{ settings.footer_networks_vimeo }}" target="_blank" title="{{ shop.name }} on Vimeo"><i class="fa fa-social fa-vimeo-square"></i>Vimeo</a><br>{% endif %}
+            {% if settings.footer_networks_youtube != '' %}<a href="{{ settings.footer_networks_youtube }}" target="_blank" title="{{ shop.name }} on Youtube"><i class="fa fa-social fa-youtube-square"></i>Youtube</a><br>{% endif %}
+            {% if settings.footer_networks_tumblr != '' %}<a href="{{ settings.footer_networks_tumblr }}" target="_blank" title="{{ shop.name }} on Tumblr"><i class="fa fa-social fa-tumblr"></i>Tumblr</a><br>{% endif %}
+            {% if settings.footer_networks_wordpress != '' %}<a href="{{ settings.footer_networks_wordpress }}" target="_blank" title="{{ shop.name }} on Wordpress"><i class="fa fa-social fa-wordpress"></i>Wordpress</a><br>{% endif %}
+          </p>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if settings.footer_newsletter_enable %}
+      <div class="extra">
+        <h4>{{ 'layout.footer.newsletter_title' | t }}</h4>
+        {% include 'footer-newsletter-form' %}
+      </div>
+    {% endif %}
+
+    {% if shop.enabled_payment_types != empty and settings.footer_show_payments %}
+      <div class="extra">
+        {{ 'layout.footer.accepted_payments' | t }}:
+        <div class="icons">
+          {% for type in shop.enabled_payment_types %}
+            {% case type %} 
+            {% when 'visa' %}
+              <i class="fa fa-cc-visa fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'master' %}
+              <i class="fa fa-cc-mastercard fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'american_express' %}
+              <i class="fa fa-cc-amex fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'paypal' %}
+              <i class="fa fa-cc-paypal fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'stripe' %}
+              <i class="fa fa-cc-stripe fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'google_wallet' %}
+              <i class="fa fa-cc-google-wallet fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'bitcoin' %}
+              <i class="fa fa-cc-bitcoin fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% when 'discover' %}
+              <i class="fa fa-cc-discover fa-3x" title="{{type | replace: '_',' '}}"></i>
+            {% else %}
+              <span class="card">{{type | replace: '_',' '}}</span>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+        {% comment %}
+    <div class="extra">
+      {{ powered_by_link }} {{ 'layout.footer.theme_title' | t }} <a href="https://themes.shopify.com/themes/california" target="_blank" title="California Theme on Shopify">California Theme</a>
+    </div>
+    {% endcomment %}
+  </div>
+</div>

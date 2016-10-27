@@ -1,0 +1,11 @@
+{% if blog.articles_count > 1 %}
+  <h3>{{ 'blogs.article.other_articles' | t }}:</h3>
+  <div class="recent posts">
+    {% assign id = article.id %}
+    {% for article in blog.articles limit:6 %}
+      {% if article.id != id %}
+        {% include 'post' %}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

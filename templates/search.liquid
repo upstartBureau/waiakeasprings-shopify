@@ -1,0 +1,31 @@
+<div class="content search">
+  {% assign respond_js_secret_key = (shop.domain | md5) %}
+  {% unless search.terms == respond_js_secret_key %}
+    {% if search.performed %}
+      {% include 'get-collection-limit' %}
+      {% paginate search.results by limit %}
+
+        <div class="left">
+          <h2>{{ 'general.search.results_for_html' | t: terms: search.terms }}</h2>
+          <h4>{{ 'collections.general.products_count' | t: count: search.results_count }}</h4>
+        </div>
+
+        <div class="collection">
+          <div class="products {{ settings.collections_layout }}">
+            {% for product in search.results %}
+              {% include 'collection-product' %}
+            {% endfor %}
+            {% include 'collection-product-pagination' %}
+          </div>
+        </div>
+
+      {% endpaginate %}
+    {% else %}
+      {% include 'get-url-to-collections' %}
+      <script>window.location = "{{ collections_url }}";</script>
+    {% endif %}
+  {% else %}
+    {% include 'respond' %}
+    {% layout none %}
+  {% endunless %}
+</div>

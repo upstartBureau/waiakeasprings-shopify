@@ -1,0 +1,7 @@
+<link href="//fonts.googleapis.com/css?family={{ settings.google_font_family_regular }}:300,400{% if settings.google_font_family_regular != settings.google_font_family_headers %}|{{ settings.google_font_family_headers }}:300,400{% endif %}" rel='stylesheet' type="text/css">
+{{ 'california.scss.css' | asset_url | stylesheet_tag }}
+{{ 'demo.css' | asset_url | stylesheet_tag }}
+{% assign product_template = template | replace: '.', ' ' | handle %}
+{% unless produt_template == 'product-water-bottle' %}
+  {{ 'bxslider.css' | asset_url | stylesheet_tag }}
+{% endunless %}

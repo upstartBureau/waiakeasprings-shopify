@@ -1,0 +1,6 @@
+{% include 'get-collection-limit' %}
+<div class="content">
+  {% paginate collection.products by limit %}
+    {% include 'collection' %}
+  {% endpaginate %}
+</div>

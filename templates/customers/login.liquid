@@ -1,0 +1,69 @@
+{% layout settings.customer_layout %}
+{% include 'alert-header' %}
+
+<div class="content login">
+  <div class="box register">
+    <h2>{{ 'customer.login.register_title' | t }}</h2>
+    <h4>{{ 'customer.login.register_subtitle' | t }}</h4>
+    <div class="row">
+      <a class="btn action full" href="/account/register">{{ 'customer.login.register_action' | t }}</a>
+    </div>
+  </div>
+  <div class="box login" id="login">
+    <h2>{{ 'customer.login.title' | t }}</h2>
+    <h4>{{ 'customer.login.subtitle' | t }}</h4>
+    {% form 'customer_login' %}
+      {% if form.errors %}
+        {% assign alert = form.errors | default_errors %}
+      {% endif %}
+      <div class="row">
+        <input class="full{% if form.errors contains 'email' %} error{% endif %}" name="customer[email]" id="customer_email" placeholder="{{ 'customer.login.email' | t }}" type="email" autocorrect="off" autocapitalize="off" autofocus="autofocus">
+      </div>
+      {% if form.password_needed %}
+        <div class="row">
+          <input class="full{% if form.errors contains 'password' %} error{% endif %}" name="customer[password]" id="customer_password" placeholder="{{ 'customer.login.password' | t }}" type="password">
+        </div>
+      {% endif %}
+      <div class="row">
+        <input class="btn action full" data-action="process" data-message="{{ 'customer.login.signing_in' | t }}" name="commit" type="submit" value="{{ 'customer.login.sign_in' | t }}">
+      </div>
+      <div class="row">
+        <a class="underscore" data-action="toggle-recover-password">{{ 'customer.login.forgot_password' | t }}</a><br>
+      </div>
+    {% endform %}
+  </div>
+  <div id="recover_password" style="display: none;" class="box login">
+    <h2>{{ 'customer.login.password_title' | t }}</h2>
+    <h4>{{ 'customer.login.password_subtitle' | t }}</h4>
+
+    {% form 'recover_customer_password' %}
+      {% assign alert = form.errors | default_errors %}
+      {% if form.posted_successfully? %}
+        {% assign alert = 'customer.login.password_sent' | t %}
+      {% endif %}
+
+      <div class="row">
+        <input type="email" class="full" name="email" id="recover-email" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off">
+      </div>
+      <div class="row">
+        <input type="submit" class="btn action full" value="{{ 'customer.login.password_action' | t }}">
+      </div>
+      <div class="row">
+        {% capture link %}
+          <a class="underscore" data-action="toggle-recover-password">{{ 'customer.login.password_cancel' | t }}</a>
+        {% endcapture %}
+        {{ 'general.navigation.cancel_html' | t: link: link }}
+      </div>
+    {% endform %}
+  </div>
+  {% if shop.checkout.guest_login %}
+    <div class="box guest">
+      <h2>{{ 'customer.login.guest_title' | t }}</h2>
+      <h4>{{ 'customer.login.guest_subtitle' | t }}</h4>
+      {% form 'guest_login' %}
+        <input  type="submit" class="btn action full" value="{{ 'customer.login.guest_action' | t }}">
+      {% endform %}
+    </div>
+  {% endif %}
+</div>
+{% include 'alert-footer' %}

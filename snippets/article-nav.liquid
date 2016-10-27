@@ -1,0 +1,14 @@
+{% if blog.next_article or blog.previous_article %}
+  <div class="navigation">
+    {% if blog.next_article %}
+      <a class="btn icon" href="{{ blog.next_article }}" alt="{{ 'blogs.article.previous_article' | t }}" data-action="keydown" data-key="37"><i class="fa fa-arrow-left"></i></a>
+    {% else %}
+      <a class="btn icon end" href=""><i class="fa fa-arrow-left"></i></a>
+    {% endif %}
+    {% if blog.previous_article %}
+      <a class="btn icon" href="{{ blog.previous_article }}" alt="{{ 'blogs.article.next_article' | t }}" data-action="keydown" data-key="39"><i class="fa fa-arrow-right"></i></a>
+    {% else %}
+      <a class="btn icon end" href=""><i class="fa fa-arrow-right"></i></a>
+    {% endif %}
+  </div>
+{% endif %}

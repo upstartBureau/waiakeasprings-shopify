@@ -1,0 +1,72 @@
+{% if blog.comments_enabled? %}
+
+  <div id="comments" class="comments">
+    {% if number_of_comments > 0 %}
+      <h3>{{ 'blogs.comments.title' | t: count: number_of_comments }}:</h3>
+      {% if comment and comment.created_at %}
+        <h4 class="note form-success">
+          {% if blog.moderated? %}
+            {{ 'blogs.comment_form.success_moderated' | t }}
+          {% else %}
+            {{ 'blogs.comment_form.success' | t }}
+          {% endif %}
+        </h4>
+      {% endif %}
+
+      {% if number_of_comments > 0 %}
+        {% if comment and comment.created_at %}
+        <div id="{{ comment.id }}" class="first{% if article.comments_count == 0 %} last{% endif %}">
+          {% include 'comment' %}
+        </div>
+        {% endif %}
+
+        {% for comment in article.comments %}
+          <div id="{{ comment.id }}" class="{% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
+            {% include 'comment' %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+
+    <h3 id="add-comment-title">{{ 'blogs.comment_form.title' | t }}:</h3>
+    {% form 'new_comment', article %}
+      {% if form.errors %}
+        {% assign alert = form.errors | default_errors %}
+      {% endif %}
+      <div class="row">
+        <input class="full{% if form.errors contains "author" %} error{% endif %}" type="text" name="comment[author]" placeholder="{{ 'blogs.comment_form.name' | t }}" id="comment-author" value="{{ form.author }}" autocapitalize="words">
+      </div>
+      <div class="row">
+        <input class="full{% if form.errors contains "email" %} error{% endif %}" type="email" name="comment[email]" placeholder="{{ 'blogs.comment_form.email' | t }}" id="comment-email" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+      </div>
+      <div class="row">
+        <textarea class="full{% if form.errors contains "body" %} error{% endif %}" name="comment[body]" id="comment-body" placeholder="{{ 'blogs.comment_form.message' | t }}">{{ form.body }}</textarea>
+      </div>
+
+      {% if blog.moderated? %}
+        <div class="row">
+          <p><span class="highlight">{{ 'blogs.comment_form.moderated' | t }}</span></p>
+        </div>
+      {% endif %}
+
+      <div class="row">
+        <input type="submit" class="btn action small" value="{{ 'blogs.comment_form.post' | t }}">
+      </div>
+
+      {% if form.errors %}
+        <script>
+          window.location.hash = '#add-comment-title';
+        </script>
+      {% endif %}
+
+      {% if form.posted_successfully? %}
+        <script>
+          window.location.hash = '#comments';
+        </script>
+      {% endif %}
+
+    {% endform %}
+
+  </div>
+
+{% endif %}

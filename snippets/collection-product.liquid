@@ -1,0 +1,54 @@
+{% unless current_collection %}
+  {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price_min > product.price_min %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign soldout = true %}
+{% if product.available  %}
+  {% assign soldout = false %}
+{% endif %}
+
+{% if template == 'collection' %}
+  {% assign product_url = product.url | within: collection %}
+{% else %}
+  {% assign product_url = product.url %}
+{% endif %}
+
+{% include 'get-collection-product-class' %}
+<div class="product {{ collection_product_class }}{% if soldout %} soldout{% endif %}{% if on_sale %} {% comment %} on-sale {% endcomment %}{% endif %}">
+  <div class="inner">
+    <a href="{{ product_url }}" class="image">
+      <div class="line"></div>
+      <div class="frame">
+        <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">
+      </div>
+    </a>    
+    <div class="info">
+      <div class="status">
+        {% if soldout %}
+          <a class="sold" href="{{ product_url }}">{{ 'products.product.sold_out' | t }}</a>
+        {% elsif on_sale %}
+          <a class="sale" href="{{ product_url }}">{{ 'products.product.on_sale' | t }}</a>
+        {% else %}
+          <a class="buy" href="{{ product_url }}">{{ 'products.product.buy' | t }}</a>
+        {% endif %}
+      </div>
+      <div class="metas">
+        <div class="title">{{ product.title }}</div>
+        <div>
+          {% if on_sale %}
+            <span class="price striped">{{ product.compare_at_price_min | money }}</span>
+          {% endif %}
+          {% if product.price_varies %}
+            <span class="from">{{ 'products.product.from' | t }}</span>
+          {% endif %}
+          <span class="price">{{ product.price_min | money }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

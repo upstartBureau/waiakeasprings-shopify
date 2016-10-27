@@ -1,0 +1,21 @@
+{% include 'get-collection-product-class' %}
+<div class="product {{ collection_product_class }}">
+  <div class="inner">
+    <a href="/collections/all" class="image">
+      <div class="frame">
+        <img src="{{ 'default-product-image.jpg' | asset_url }}">
+      </div>
+    </a>    
+    <div class="info">
+      <div class="status">
+        <a class="buy" href="#">{{ 'products.product.buy' | t }}</a>
+      </div>
+      <div class="metas">
+        <div class="title">{{ 'home_page.collection.onboarding_product_name' | t }}</div>
+        <div>
+          <span class="price">{{ 12300 | money }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

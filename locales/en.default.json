@@ -1,0 +1,316 @@
+{
+  "general": {
+    "404": {
+      "title": "Page Not Found",
+      "subtitle": "The page you requested doesn't exist.",
+      "continue_shopping": "Continue Shopping",
+      "open_menu": "Open Menu"
+    },
+    "breadcrumbs": {
+      "catalog": "Products",
+      "collections": "Collections",
+      "search": "Search"
+    },
+    "search": {
+      "placeholder": "Search",
+      "results_for_html": "Search results for “{{ terms }}”:",
+      "no_results": "There are no products"
+    },
+    "pagination": {
+      "collections_more": "More collections",
+      "collections_loading": "Loading...",
+      "products_more": "More products",
+      "products_loading": "Loading...",
+      "articles_more": "More articles",
+      "articles_loading": "Loading..."
+    },
+    "navigation": {
+      "cancel_html": "or {{ link }}"
+    },
+    "page_title": {
+      "tagged": "tagged \"{{ tags }}\"",
+      "pagination": "Page {{ current_page }}"
+    },
+    "newsletter_form": {
+      "hero_text": "Signup to get a notification when we launch.",
+      "hero_newsletter_email": "Email address",
+      "hero_submit": "Notify me",
+      "footer_newsletter_email": "Enter your email address...",
+      "footer_submit": "OK"
+    }
+  },
+  "blogs": {
+    "article": {
+      "read_entire_article": "Read entire article",
+      "tags": "Tags",
+      "previous_article": "Previous article",
+      "next_article": "Next article",
+      "other_articles": "Other articles"
+    },
+    "comments": {
+      "title": "Comments ({{ count }})",
+      "comment_title_html": "{{ author }} on <time datetime=\"{{ date }}\">{{ date }}<\/time>",
+      "comments_count": {
+        "zero": "There are no comments",
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "comment_form": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!"
+    }
+  },
+  "collections": {
+    "general": {
+      "catalog": "Catalog",
+      "collections": "Collections",
+      "view_all_products": "View all products",
+      "all_products": "All products",
+      "no_collections": "Sorry, there are currently no collections.",
+      "no_products": "Sorry, there are currently no products available at this collection.",
+      "products_count": {
+        "zero": "There are no products",
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      }
+    },
+    "sort_by": {
+      "manual": "Sort by featured",
+      "best_selling": "Sort by best selling",
+      "title_ascending": "Sort alphabetically, A-Z",
+      "title_descending": "Sort alphabetically, Z-A",
+      "price_ascending": "Sort by price, low to high",
+      "price_descending": "Sort by price, high to low",
+      "created_descending": "Sort by date, new to old",
+      "created_ascending": "Sort by date, old to new"
+    }
+  },
+  "products": {
+    "product": {
+      "buy": "Buy",
+      "from": "⁓",
+      "on_sale": "",
+      "sold_out": "Sold Out",
+      "available_units_html": "Available units: {{ units }}",
+      "unavailable": "Unavailable",
+      "add_to_cart": "Add to Cart",
+      "adding_to_cart": "Adding product..."
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Message",
+      "send": "Send",
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
+      "return_to_store": "Return to Store"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Account Information",
+      "user_info_html": "Account created by <span class=\"highlight\">{{ name }}<\/span>, with email <span class=\"highlight\">{{ email }}<\/span>.",
+      "address_info_html": "The default address is <span class=\"highlight\">{{ address }}<\/span>.",
+      "add_address": "Add Your Address",
+      "edit_addresses": "Edit Addresses ({{ count }})",
+      "return_to_store": "Return to Store"
+    },
+    "orders": {
+      "title": "Your Orders",
+      "order_description_html": "On {{ date }} order {{ link }} was placed and it's current status is <span class=\"highlight\">{{ financial_status }}<\/span> and <span class=\"highlight\">{{ fulfillment_status }}<\/span>.",
+      "new_order": "Create new order"
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Placed on {{ date }}",
+      "cancelled": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "The reason was: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "total": "Total",
+      "new_order": "Create new order",
+      "return_to_account": "Return to Your Account"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtitle": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "submitting": "Activating...",
+      "cancel": "Decline Invitation",
+      "return_to_store": "Return to Store"
+    },
+    "addresses": {
+      "title": "Your Address Book",
+      "subtitle": "These are the addresses linked to your account.",
+      "empty": "Your Address Book is currently empty.",
+      "default": "Default Address",
+      "add_new": "New Address",
+      "edit_address": "Edit Address",
+      "recipient": "Recipient",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address": "Address",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "phone_label": "Tel.",
+      "set_default_label": "Set as Default Address?",
+      "set_default_action": "Yes, please.",
+      "add": "Add New Address",
+      "adding": "Adding...",
+      "update": "Update Address",
+      "updating": "Updating...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_question": "Are you sure you wish to delete this address?",
+      "return": "Return to Your Account"
+    },
+    "login": {
+      "title": "Already registered?",
+      "subtitle": "Start a new session.",
+      "email": "Email",
+      "password": "Password",
+      "sign_in": "Sign in",
+      "signing_in": "Starting session...",
+      "forgot_password": "Forgot your password?",
+      "register_title": "Are you a new client?",
+      "register_subtitle": "Create a new account.",
+      "register_action": "Register",
+      "password_title": "Reset your password:",
+      "password_subtitle": "You will receive an email with instructions.",
+      "password_sent": "We've sent you an email with a link to update your password.",
+      "password_action": "Send instructions",
+      "password_cancel": "Cancel",
+      "guest_title": "Don't want to register?",
+      "guest_subtitle": "Continue as a guest.",
+      "guest_action": "Skip Registration"
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtitle": "Enter a new password for {{ email }}",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Reset Password",
+      "submitting": "Updating...",
+      "return_to_store": "Return to Store"
+    },
+    "register": {
+      "title": "Create New Account",
+      "subtitle": "Provide us with your contact information.",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create My Account",
+      "submitting": "Registering...",
+      "return_to_store": "Return to Store"
+    }
+  },
+  "home_page": {
+    "hero": {
+      "tagline_html": "NATURALLY FILTERED THROUGH THOUSANDS OF FEET OF POROUS VOLCANIC ROCK",
+      "button_to_store": "Browse our products",
+      "button_to_scroll": "Learn more about our plans",
+      "photo_credits_html": "Photo by {{ author }} under {{ license }}"
+    },
+    "pitch": {
+      "title": "WAIĀKEA WATER",
+      "subtitle_html": "Naturally filtered through thousands of feet of volcanic rock",
+      "reason_1_title": "Choose A Subscription",
+      "reason_1_description_html": "And save up to 20%, or select a one-time delivery",
+      "reason_2_title": "Select A Bottle",
+      "reason_2_description_html": "Choose from 500ML or 1Liter",
+      "reason_3_title": "Get It Delivered",
+      "reason_3_description_html": "Enjoy the convenience of home delivery",
+      "reason_4_title": "Easy to Use",
+      "reason_4_description_html": "Upload your logo, change the text, add your products, collections, change the menus, all done in an easy way and following Shopify standars.",
+      "reason_5_title": "Adjusted for SEO",
+      "reason_5_description_html": "Search Engine Optimized with the experience of many years working on high traffic websites and including the latest Shopify SEO features.",
+      "reason_6_title": "Personal 24\/7 Support",
+      "reason_6_description_html": "We are available via email, and we typically respond to support requests within 3-6 hours. Often, we respond even faster!",
+      "button_to_store": "Browse our products"
+    },
+    "collection": {
+      "title": "Product Options",
+      "button_to_store": "",
+      "onboarding_product_name": "Product Title"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Shopping Cart",
+      "remove": "Remove",
+      "subtotal": "Subtotal",
+      "update": "Update Cart",
+      "checkout": "Check Out",
+      "add_more_products": "Add more products",
+      "seller_instructions": "Special instructions for seller:",
+      "empty": "It appears that your cart is currently empty.",
+      "continue_browsing": "Continue browsing"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "amount_left_html": "{{ amount }} <small>left<\/small>",
+      "redeem": "Use this code at checkout to redeem your gift card.",
+      "shop_link": "Start Shopping",
+      "print": "Print",
+      "disabled": "This gift card has been disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}"
+    }
+  },
+  "layout": {
+    "header_nav": {
+      "cart_count": {
+        "zero": "Cart",
+        "one": "Cart ({{ count }} item)",
+        "other": "Cart ({{ count }} items)"
+      }
+    },
+    "side_nav": {
+      "account": "Your Account",
+      "logout": "Log Out",
+      "signin": "Sign In",
+      "close": "Close",
+      "back": "Back"
+    },
+    "footer": {
+      "contact": "Contact",
+      "social": "Social",
+      "email": "Email",
+      "newsletter_title": "Newsletter",
+      "accepted_payments": "Accepted Payments",
+      "theme_title": "with"
+    }
+  },
+  "date_formats": {
+    "day_month_and_year": "%B %e, %Y",
+    "date_and_time": "%B %e, %Y at %I:%M %P"
+  }
+}

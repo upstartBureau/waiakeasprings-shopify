@@ -1,0 +1,12 @@
+---
+:api_key: cb99abbaa79a631837cf27bfa0e46840
+:password: 77349fd9331e3003a23272f1e97308dc
+:store: waiakea.myshopify.com
+:theme_id: 62212229
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/

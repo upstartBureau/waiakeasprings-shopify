@@ -1,0 +1,92 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js ie9 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<!-- California Theme Version 2.4 -->
+<head>
+  {% include 'metas' %}
+  {% include 'styles' %}
+  {% include 'javascript' %}
+  {{ content_for_header }}
+</head>
+
+<script type="text/javascript">
+    adroll_adv_id = "UIR3PV264FF7TB23XS3JS7";
+    adroll_pix_id = "QLFEBPYQTZFOZGRDJ725FC";
+    /* OPTIONAL: provide email to improve user identification */
+    /* adroll_email = "username@example.com"; */
+    (function () {
+        var _onload = function(){
+            if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+            if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        };
+        if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+        else {window.attachEvent('onload', _onload)}
+    }());
+</script>
+
+<body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | replace: '.', ' ' | handle }}">
+<!-- Google Tag Manager -->
+<noscript>
+  <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TZ8PRX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TZ8PRX');
+</script>
+<!-- End Google Tag Manager -->
+
+  {% include 'search-bar' %}
+  <div class="{% if template == 'index' %}{% else %}page-container{% endif %}">
+    {% include 'header' %}
+    {% include 'side-nav' %}
+    	<nav class="main-nav">
+         {% if template == "index" %}
+          <h1 style="visibility:hidden;" class="logo" itemscope itemtype="http://schema.org/Organization">
+            <a href="{{ shop.url }}" itemprop="url">
+                <img src="{{ '' | asset_url }}" alt="{{ shop.name }}" width="80px" itemprop="logo">
+            </a>
+          </h1>
+      	 {% else %}
+
+          {% endif %}
+
+          {% if template == "index" %}
+            <ul>
+              {% for link in linklists.main-menu.links %}
+                 <li>{{ link.title | link_to: link.url }}</li>
+              {% endfor %}
+          	</ul>
+          {% endif %}
+          {% if template == "index" %}
+          <div class="cart-box">
+            <a href="/cart"><img src="//cdn.shopify.com/s/files/1/1063/3186/t/2/assets/cart.png?5499244794509170653"><span>{{ cart.item_count }}</span></a>
+          </div>
+          {% else %}
+          {% endif %}
+        </nav>
+    {% if template == "index" %}
+    	{% include 'hero' %}
+    {% endif %}
+    <div class="wrapper main-content" role="main">
+      {{ content_for_layout }}
+    </div>
+    {% unless settings.footer_hidden %}
+      {% include 'footer' %}
+    {% endunless %}
+  </div>
+
+{% include 'subscription-theme-footer' %}
+
+
+
+
+<input type="hidden" name="_pc_params" value="{{ shop.permanent_domain }}:{{ customer.id }}" />
+</body>
+</html>

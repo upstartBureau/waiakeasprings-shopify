@@ -1,0 +1,53 @@
+{% if template contains 'product' %}
+          {% if collection %}
+            {% if collection.handle %}
+              <h2>/ <a href="/collections">{{ 'general.breadcrumbs.collections' | t }}</a></h2>
+              {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+              <h3>/ {{ collection.title | link_to: url }}</h3>
+            {% endif %}
+          {% else %}
+            {% if product.handle contains 'water' or product.handle contains 'subscription' %}              
+              <h2>/ <a href="/pages/plans">Plans</a></h2>
+            {% else %}
+              <h2>/ <a href="/collections">Collections</a></h2>
+            {% endif %}
+          {% endif %}
+          <h4>/ {{ product.title }}</h4>
+        {% elsif template contains 'list-collections' %}
+          <h2>/ {{ 'general.breadcrumbs.collections' | t }}</h2>
+        {% elsif template contains 'collection' and collection.handle %}
+          {% if current_tags %}
+            {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+            {{ collection.title | link_to: url }}
+            <h2>/ {{ current_tags | join: " + " }}</h2>
+          {% else %}
+            {% if shop.collections_count == 1 or collection.handle == "all" %}
+              <h2>/ <a href="/collections/all">{{ 'general.breadcrumbs.catalog' | t }}</a></h2>
+            {% else %}
+              <h2>/ <a href="/collections">{{ 'general.breadcrumbs.collections' | t }}</a></h2>
+              <h2>/ {{ collection.title }}</h2>
+            {% endif %}
+          {% endif %}
+        {% elsif template contains 'collection' and collection.current_type %}
+          <h2>/ <a href="/collections/all">{{ 'general.breadcrumbs.catalog' | t }}</a></h2>
+          <h3>/ {{ collection.current_type }}</h3>
+        {% elsif template contains 'search' %}
+          {% if shop.collections_count == 1 or collection.handle == "all" %}
+            <h2>/ <a href="/collections/all">{{ 'general.breadcrumbs.catalog' | t }}</a></h2>
+          {% else %}
+            <h2>/ <a href="/collections">{{ 'general.breadcrumbs.collections' | t }}</a></h2>
+          {% endif %}
+          <h2>/ {{ 'general.breadcrumbs.search' | t }}</h2>
+        {% elsif template == 'blog' %}
+          {% if current_tags %}
+            <h2>/ {{ blog.title | link_to: blog.url }}</h2>
+            <h3>/ {{ current_tags | join: " + " }}</h3>
+          {% else %}
+          <h2>/ {{ blog.title }}</h2>
+          {% endif %}
+        {% elsif template == 'article' %}
+          <h2>/ {{ blog.title | link_to: blog.url }}</h2>
+          <h3>/ {{ article.title }}</h3>
+        {% elsif template contains 'page' %}
+        {% endif %}
+      </div>
